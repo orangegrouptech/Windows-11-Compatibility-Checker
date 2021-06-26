@@ -1,6 +1,8 @@
 # Windows-11-Compatibility-Checker
 Checks if your system meets the requirements of Windows 11.
+
 This app features a better UI than WhyNotWin11.
+
 If you don't trust me you can decompile the app, it's not obfuscated
 
 **Requirements**
