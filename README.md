@@ -3,7 +3,7 @@ Checks if your system meets the requirements of Windows 11.
 
 This app features a better UI than WhyNotWin11.
 
-If you don't trust me you can decompile the app, it's not obfuscated. Also, f you Microsoft for flagging this as malware but refusing to add the PanOS malware to your db.
+If you don't trust me you can decompile the app, it's not obfuscated. Also, f you Microsoft for flagging this as malware but refusing to add the PanOS malware to your db. This piece of software is safe to use on your host, ignore any false positives
 
 **Requirements**
 - .NET Framework 4.0 or later
