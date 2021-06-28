@@ -63,7 +63,7 @@ namespace Windows_11_Compatibility_Checker
                 notificationStatus.Image = Properties.Resources.WindowsWarning;
             } else
             {
-                string sku = (string)checkwindowsversion.GetValue("CompositionEditionID");
+                string sku = (string)checkwindowsversion.GetValue("EditionID");
                 if (sku.Contains("Enterprise"))
                 {
                     notificationText.Text = "No Enterprise SKU in Windows 11 for now.";
