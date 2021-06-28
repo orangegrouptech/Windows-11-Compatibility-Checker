@@ -8,7 +8,7 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 **Requirements**
 - .NET Framework 4.5 or later
 - Admin because the TPM status check command requires admin
-- Windows 10 or later
+- Windows 7 or later
 
 **Known issues**
 - App will crash on Windows XP and Windows 7
