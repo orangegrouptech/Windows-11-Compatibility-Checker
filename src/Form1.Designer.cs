@@ -30,8 +30,8 @@ namespace Windows_11_Compatibility_Checker
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
+            this.yourSpecsTitle = new System.Windows.Forms.Label();
             this.cpuName = new System.Windows.Forms.Label();
             this.cpuStatus = new System.Windows.Forms.PictureBox();
             this.ramImage = new System.Windows.Forms.PictureBox();
@@ -43,40 +43,44 @@ namespace Windows_11_Compatibility_Checker
             this.cpuArchitectureStatus = new System.Windows.Forms.PictureBox();
             this.cpuArchitectureText = new System.Windows.Forms.Label();
             this.storageText = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.tpmStatus = new System.Windows.Forms.PictureBox();
+            this.tpmText = new System.Windows.Forms.Label();
             this.storageImage = new System.Windows.Forms.PictureBox();
             this.notificationStatus = new System.Windows.Forms.PictureBox();
             this.notificationText = new System.Windows.Forms.Label();
+            this.darkModeButton = new System.Windows.Forms.Button();
+            this.screenResolutionStatus = new System.Windows.Forms.PictureBox();
+            this.screenResolutionText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cpuStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpuStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secureBootStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpuArchitectureStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tpmStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.screenResolutionStatus)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // Title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.label1.Location = new System.Drawing.Point(23, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(468, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Windows 11 Compatibility at a glance";
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Segoe UI", 20F);
+            this.Title.Location = new System.Drawing.Point(23, 51);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(468, 37);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "Windows 11 Compatibility at a glance";
             // 
-            // label2
+            // yourSpecsTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.label2.Location = new System.Drawing.Point(27, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Your Specs:";
+            this.yourSpecsTitle.AutoSize = true;
+            this.yourSpecsTitle.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.yourSpecsTitle.Location = new System.Drawing.Point(27, 101);
+            this.yourSpecsTitle.Name = "yourSpecsTitle";
+            this.yourSpecsTitle.Size = new System.Drawing.Size(110, 28);
+            this.yourSpecsTitle.TabIndex = 1;
+            this.yourSpecsTitle.Text = "Your Specs:";
             // 
             // cpuName
             // 
@@ -84,9 +88,9 @@ namespace Windows_11_Compatibility_Checker
             this.cpuName.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.cpuName.Location = new System.Drawing.Point(63, 135);
             this.cpuName.Name = "cpuName";
-            this.cpuName.Size = new System.Drawing.Size(129, 25);
+            this.cpuName.Size = new System.Drawing.Size(126, 25);
             this.cpuName.TabIndex = 2;
-            this.cpuName.Text = "CPU: Unknown";
+            this.cpuName.Text = "CPU: Checking";
             // 
             // cpuStatus
             // 
@@ -112,9 +116,9 @@ namespace Windows_11_Compatibility_Checker
             this.memoryAmount.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.memoryAmount.Location = new System.Drawing.Point(63, 168);
             this.memoryAmount.Name = "memoryAmount";
-            this.memoryAmount.Size = new System.Drawing.Size(135, 25);
+            this.memoryAmount.Size = new System.Drawing.Size(132, 25);
             this.memoryAmount.TabIndex = 4;
-            this.memoryAmount.Text = "RAM: Unknown";
+            this.memoryAmount.Text = "RAM: Checking";
             // 
             // gpuStatus
             // 
@@ -131,9 +135,9 @@ namespace Windows_11_Compatibility_Checker
             this.gpuText.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.gpuText.Location = new System.Drawing.Point(63, 202);
             this.gpuText.Name = "gpuText";
-            this.gpuText.Size = new System.Drawing.Size(130, 25);
+            this.gpuText.Size = new System.Drawing.Size(127, 25);
             this.gpuText.TabIndex = 6;
-            this.gpuText.Text = "GPU: Unknown";
+            this.gpuText.Text = "GPU: Checking";
             // 
             // secureBootStatus
             // 
@@ -150,9 +154,9 @@ namespace Windows_11_Compatibility_Checker
             this.secureBootText.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.secureBootText.Location = new System.Drawing.Point(63, 301);
             this.secureBootText.Name = "secureBootText";
-            this.secureBootText.Size = new System.Drawing.Size(244, 25);
+            this.secureBootText.Size = new System.Drawing.Size(241, 25);
             this.secureBootText.TabIndex = 8;
-            this.secureBootText.Text = "Secure Boot Status: Unknown";
+            this.secureBootText.Text = "Secure Boot Status: Checking";
             // 
             // cpuArchitectureStatus
             // 
@@ -169,9 +173,9 @@ namespace Windows_11_Compatibility_Checker
             this.cpuArchitectureText.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.cpuArchitectureText.Location = new System.Drawing.Point(63, 235);
             this.cpuArchitectureText.Name = "cpuArchitectureText";
-            this.cpuArchitectureText.Size = new System.Drawing.Size(228, 25);
+            this.cpuArchitectureText.Size = new System.Drawing.Size(225, 25);
             this.cpuArchitectureText.TabIndex = 10;
-            this.cpuArchitectureText.Text = "CPU Architecture: Unknown";
+            this.cpuArchitectureText.Text = "CPU Architecture: Checking";
             // 
             // storageText
             // 
@@ -179,28 +183,28 @@ namespace Windows_11_Compatibility_Checker
             this.storageText.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.storageText.Location = new System.Drawing.Point(63, 268);
             this.storageText.Name = "storageText";
-            this.storageText.Size = new System.Drawing.Size(157, 25);
+            this.storageText.Size = new System.Drawing.Size(154, 25);
             this.storageText.TabIndex = 14;
-            this.storageText.Text = "Storage: Unknown";
+            this.storageText.Text = "Storage: Checking";
             // 
-            // pictureBox5
+            // tpmStatus
             // 
-            this.pictureBox5.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.pictureBox5.Location = new System.Drawing.Point(32, 335);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(33, 31);
-            this.pictureBox5.TabIndex = 17;
-            this.pictureBox5.TabStop = false;
+            this.tpmStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
+            this.tpmStatus.Location = new System.Drawing.Point(32, 335);
+            this.tpmStatus.Name = "tpmStatus";
+            this.tpmStatus.Size = new System.Drawing.Size(33, 31);
+            this.tpmStatus.TabIndex = 17;
+            this.tpmStatus.TabStop = false;
             // 
-            // label7
+            // tpmText
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.label7.Location = new System.Drawing.Point(63, 334);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(459, 25);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "TPM: Check the BIOS and enable AMD fTPM or Intel PTT.";
+            this.tpmText.AutoSize = true;
+            this.tpmText.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tpmText.Location = new System.Drawing.Point(63, 334);
+            this.tpmText.Name = "tpmText";
+            this.tpmText.Size = new System.Drawing.Size(128, 25);
+            this.tpmText.TabIndex = 16;
+            this.tpmText.Text = "TPM: Checking";
             // 
             // storageImage
             // 
@@ -230,16 +234,49 @@ namespace Windows_11_Compatibility_Checker
             this.notificationText.TabIndex = 19;
             this.notificationText.Text = "No new alerts from the checker. Nice!";
             // 
+            // darkModeButton
+            // 
+            this.darkModeButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.darkModeButton.Location = new System.Drawing.Point(515, 402);
+            this.darkModeButton.Name = "darkModeButton";
+            this.darkModeButton.Size = new System.Drawing.Size(106, 34);
+            this.darkModeButton.TabIndex = 20;
+            this.darkModeButton.Text = "Dark Mode";
+            this.darkModeButton.UseVisualStyleBackColor = true;
+            this.darkModeButton.Click += new System.EventHandler(this.darkModeButton_Click);
+            // 
+            // screenResolutionStatus
+            // 
+            this.screenResolutionStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
+            this.screenResolutionStatus.Location = new System.Drawing.Point(32, 368);
+            this.screenResolutionStatus.Name = "screenResolutionStatus";
+            this.screenResolutionStatus.Size = new System.Drawing.Size(33, 31);
+            this.screenResolutionStatus.TabIndex = 22;
+            this.screenResolutionStatus.TabStop = false;
+            // 
+            // screenResolutionText
+            // 
+            this.screenResolutionText.AutoSize = true;
+            this.screenResolutionText.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.screenResolutionText.Location = new System.Drawing.Point(63, 366);
+            this.screenResolutionText.Name = "screenResolutionText";
+            this.screenResolutionText.Size = new System.Drawing.Size(233, 25);
+            this.screenResolutionText.TabIndex = 21;
+            this.screenResolutionText.Text = "Screen Resolution: Checking";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(633, 429);
+            this.ClientSize = new System.Drawing.Size(633, 448);
+            this.Controls.Add(this.screenResolutionStatus);
+            this.Controls.Add(this.screenResolutionText);
+            this.Controls.Add(this.darkModeButton);
             this.Controls.Add(this.notificationText);
             this.Controls.Add(this.notificationStatus);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tpmStatus);
+            this.Controls.Add(this.tpmText);
             this.Controls.Add(this.storageImage);
             this.Controls.Add(this.storageText);
             this.Controls.Add(this.cpuArchitectureStatus);
@@ -252,8 +289,8 @@ namespace Windows_11_Compatibility_Checker
             this.Controls.Add(this.memoryAmount);
             this.Controls.Add(this.cpuStatus);
             this.Controls.Add(this.cpuName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.yourSpecsTitle);
+            this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -265,9 +302,10 @@ namespace Windows_11_Compatibility_Checker
             ((System.ComponentModel.ISupportInitialize)(this.gpuStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secureBootStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpuArchitectureStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tpmStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.screenResolutionStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,8 +313,8 @@ namespace Windows_11_Compatibility_Checker
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.Label yourSpecsTitle;
         private System.Windows.Forms.Label cpuName;
         private System.Windows.Forms.PictureBox cpuStatus;
         private System.Windows.Forms.PictureBox ramImage;
@@ -288,11 +326,14 @@ namespace Windows_11_Compatibility_Checker
         private System.Windows.Forms.PictureBox cpuArchitectureStatus;
         private System.Windows.Forms.Label cpuArchitectureText;
         private System.Windows.Forms.Label storageText;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox tpmStatus;
+        private System.Windows.Forms.Label tpmText;
         private System.Windows.Forms.PictureBox storageImage;
         private System.Windows.Forms.PictureBox notificationStatus;
         private System.Windows.Forms.Label notificationText;
+        private System.Windows.Forms.Button darkModeButton;
+        private System.Windows.Forms.PictureBox screenResolutionStatus;
+        private System.Windows.Forms.Label screenResolutionText;
     }
 }
 

@@ -141,6 +141,16 @@ namespace Windows_11_Compatibility_Checker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WindowsLoading {
+            get {
+                object obj = ResourceManager.GetObject("WindowsLoading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WindowsSuccess {
             get {
                 object obj = ResourceManager.GetObject("WindowsSuccess", resourceCulture);
