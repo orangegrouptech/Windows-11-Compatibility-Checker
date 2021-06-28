@@ -22,6 +22,10 @@ namespace Windows_11_Compatibility_Checker
         private async void Main2() {
             //Dark Light Mode
             RegistryKey setdarkmodepreferences = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Orange Group\Windows 11 Compatibility Checker");
+            if(setdarkmodepreferences.GetValue("DarkMode") == null)
+            {
+                setdarkmodepreferences.SetValue("DarkMode", 0);
+            }
             if ((int)setdarkmodepreferences.GetValue("DarkMode") == 1)
             {
                 BackColor = System.Drawing.Color.Black;
@@ -38,7 +42,7 @@ namespace Windows_11_Compatibility_Checker
                 screenResolutionText.ForeColor = System.Drawing.Color.White;
                 darkModeButton.Text = "Light Mode";
             }
-            else if((int)setdarkmodepreferences.GetValue("DarkMode") == 0 || setdarkmodepreferences.GetValue("DarkMode") == null)
+            else if((int)setdarkmodepreferences.GetValue("DarkMode") == 0)
             {
                 BackColor = System.Drawing.Color.White;
                 notificationText.ForeColor = System.Drawing.Color.Black;
@@ -170,6 +174,11 @@ namespace Windows_11_Compatibility_Checker
             //Secure Boot
             RegistryKey securebootstatuskey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecureBoot\State");
             var securebootstatus = securebootstatuskey.GetValue("UEFISecureBootEnabled");
+            if(securebootstatus == null)
+            {
+                secureBootText.Text = "Secure Boot: Not supported";
+                secureBootStatus.Image = Properties.Resources.WindowsCritical;
+            }
             if ((int)securebootstatus == 1)
             {
                 secureBootText.Text = "Secure Boot: Enabled";
