@@ -290,6 +290,7 @@ namespace Windows_11_Compatibility_Checker
                 cpuArchitectureText.ForeColor = System.Drawing.Color.White;
                 storageText.ForeColor = System.Drawing.Color.White;
                 secureBootText.ForeColor = System.Drawing.Color.White;
+                biosModeText.ForeColor = System.Drawing.Color.White;
                 tpmText.ForeColor = System.Drawing.Color.White;
                 screenResolutionText.ForeColor = System.Drawing.Color.White;
                 darkModeButton.Text = "Light Mode";
@@ -306,6 +307,7 @@ namespace Windows_11_Compatibility_Checker
                 cpuArchitectureText.ForeColor = System.Drawing.Color.Black;
                 storageText.ForeColor = System.Drawing.Color.Black;
                 secureBootText.ForeColor = System.Drawing.Color.Black;
+                biosModeText.ForeColor = System.Drawing.Color.Black;
                 tpmText.ForeColor = System.Drawing.Color.Black;
                 screenResolutionText.ForeColor = System.Drawing.Color.Black;
                 darkModeButton.Text = "Dark Mode";

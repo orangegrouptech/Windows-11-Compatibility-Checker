@@ -77,7 +77,7 @@ namespace Windows_11_Compatibility_Checker
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(149, 32);
             this.version.TabIndex = 2;
-            this.version.Text = "Version 1.3.1";
+            this.version.Text = "Version 1.3.2";
             // 
             // pictureBox2
             // 
