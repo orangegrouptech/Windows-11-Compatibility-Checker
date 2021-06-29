@@ -11,7 +11,6 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 - Windows 7 or later
 
 **Known issues**
-- App will crash on Windows XP and Windows 7
 - Secure Boot check may fail on systems that do not support it or are using Legacy mode.
 - Process may hang or stop responding when checking DirectX version for the first time. Just be patient.
 
