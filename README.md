@@ -14,9 +14,17 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 - Secure Boot check may fail on systems that do not support it or are using Legacy mode.
 - Process may hang or stop responding when checking DirectX version for the first time. Just be patient.
 
-![image](https://user-images.githubusercontent.com/63195743/123570927-c3ff8c80-d7fb-11eb-8ca8-97f02aa6c64d.png)
+![image](https://user-images.githubusercontent.com/63195743/123730227-a8ae8300-d8c8-11eb-9649-412e32b142f8.png)
+
+![image](https://user-images.githubusercontent.com/63195743/123730252-ac420a00-d8c8-11eb-9c65-be5c3893382a.png)
+
 
 **To-do list**
+
 Nothing rn, if you have something to suggest you can create an issue
+
+**Compiling from source code**
+
+Just open the solution in Visual Studio or JetBrains and click the (re)build button
 
 If you run this on Windows 11, you'd get a friendly message
