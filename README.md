@@ -14,9 +14,9 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 - Secure Boot check may fail on systems that do not support it or are using Legacy mode.
 - Process may hang or stop responding when checking DirectX version for the first time. Just be patient.
 
-![image](https://user-images.githubusercontent.com/63195743/123730227-a8ae8300-d8c8-11eb-9649-412e32b142f8.png)
+![image](https://user-images.githubusercontent.com/63195743/123732321-50798000-d8cc-11eb-95d5-ed092e53e596.png)
 
-![image](https://user-images.githubusercontent.com/63195743/123730252-ac420a00-d8c8-11eb-9c65-be5c3893382a.png)
+![image](https://user-images.githubusercontent.com/63195743/123734246-8c621480-d8cf-11eb-9f50-01e898b04b4c.png)
 
 
 **To-do list**
