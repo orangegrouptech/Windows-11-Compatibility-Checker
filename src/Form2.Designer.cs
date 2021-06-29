@@ -75,9 +75,9 @@ namespace Windows_11_Compatibility_Checker
             this.version.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.version.Location = new System.Drawing.Point(193, 73);
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(131, 32);
+            this.version.Size = new System.Drawing.Size(149, 32);
             this.version.TabIndex = 2;
-            this.version.Text = "Version 1.3";
+            this.version.Text = "Version 1.3.1";
             // 
             // pictureBox2
             // 

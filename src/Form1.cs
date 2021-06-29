@@ -192,7 +192,7 @@ namespace Windows_11_Compatibility_Checker
             using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt"))
             {
                 string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt");
-                if (lines[19].Contains(@"path                    \WINDOWS\system32\winload.efi"))
+                if (lines[19].Contains(@"path                    \WINDOWS\system32\winload.efi") || lines[20].Contains(@"path                    \WINDOWS\system32\winload.efi"))
                 {
                     biosModeStatus.Image = Properties.Resources.WindowsSuccess;
                     biosModeText.Text = "BIOS Mode: UEFI";
