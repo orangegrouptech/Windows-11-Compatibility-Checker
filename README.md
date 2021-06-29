@@ -15,7 +15,7 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 
 ![image](https://user-images.githubusercontent.com/63195743/123732321-50798000-d8cc-11eb-95d5-ed092e53e596.png)
 
-![image](https://user-images.githubusercontent.com/63195743/123734246-8c621480-d8cf-11eb-9f50-01e898b04b4c.png)
+![image](https://user-images.githubusercontent.com/63195743/123735564-0c897980-d8d2-11eb-97e1-feddbd52fb25.png)
 
 
 **To-do list**
