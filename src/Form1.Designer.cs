@@ -51,6 +51,7 @@ namespace Windows_11_Compatibility_Checker
             this.darkModeButton = new System.Windows.Forms.Button();
             this.screenResolutionStatus = new System.Windows.Forms.PictureBox();
             this.screenResolutionText = new System.Windows.Forms.Label();
+            this.aboutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cpuStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpuStatus)).BeginInit();
@@ -218,7 +219,7 @@ namespace Windows_11_Compatibility_Checker
             // notificationStatus
             // 
             this.notificationStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsSuccess;
-            this.notificationStatus.Location = new System.Drawing.Point(117, 16);
+            this.notificationStatus.Location = new System.Drawing.Point(131, 16);
             this.notificationStatus.Name = "notificationStatus";
             this.notificationStatus.Size = new System.Drawing.Size(33, 31);
             this.notificationStatus.TabIndex = 18;
@@ -228,7 +229,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.notificationText.AutoSize = true;
             this.notificationText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.notificationText.Location = new System.Drawing.Point(151, 15);
+            this.notificationText.Location = new System.Drawing.Point(165, 15);
             this.notificationText.Name = "notificationText";
             this.notificationText.Size = new System.Drawing.Size(306, 25);
             this.notificationText.TabIndex = 19;
@@ -237,9 +238,9 @@ namespace Windows_11_Compatibility_Checker
             // darkModeButton
             // 
             this.darkModeButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.darkModeButton.Location = new System.Drawing.Point(515, 402);
+            this.darkModeButton.Location = new System.Drawing.Point(531, 405);
             this.darkModeButton.Name = "darkModeButton";
-            this.darkModeButton.Size = new System.Drawing.Size(106, 34);
+            this.darkModeButton.Size = new System.Drawing.Size(106, 31);
             this.darkModeButton.TabIndex = 20;
             this.darkModeButton.Text = "Dark Mode";
             this.darkModeButton.UseVisualStyleBackColor = true;
@@ -264,12 +265,24 @@ namespace Windows_11_Compatibility_Checker
             this.screenResolutionText.TabIndex = 21;
             this.screenResolutionText.Text = "Screen Resolution: Checking";
             // 
+            // aboutButton
+            // 
+            this.aboutButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.aboutButton.Location = new System.Drawing.Point(12, 407);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(106, 29);
+            this.aboutButton.TabIndex = 23;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(633, 448);
+            this.ClientSize = new System.Drawing.Size(649, 448);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.screenResolutionStatus);
             this.Controls.Add(this.screenResolutionText);
             this.Controls.Add(this.darkModeButton);
@@ -334,6 +347,7 @@ namespace Windows_11_Compatibility_Checker
         private System.Windows.Forms.Button darkModeButton;
         private System.Windows.Forms.PictureBox screenResolutionStatus;
         private System.Windows.Forms.Label screenResolutionText;
+        private System.Windows.Forms.Button aboutButton;
     }
 }
 

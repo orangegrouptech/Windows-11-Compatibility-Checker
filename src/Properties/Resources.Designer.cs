@@ -61,6 +61,16 @@ namespace Windows_11_Compatibility_Checker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_cropped__Custom___1_1 {
+            get {
+                object obj = ResourceManager.GetObject("circle-cropped (Custom) (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 3015E
         ///3020E
         ///Athlon Gold 3150C
@@ -111,6 +121,56 @@ namespace Windows_11_Compatibility_Checker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap github__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("github (Custom)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap github_white__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("github_white__Custom_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap twitter__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("twitter (Custom)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap twitter_white__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("twitter_white__Custom_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Windows_11 {
+            get {
+                object obj = ResourceManager.GetObject("Windows 11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WindowsCritical {
             get {
                 object obj = ResourceManager.GetObject("WindowsCritical", resourceCulture);
@@ -134,16 +194,6 @@ namespace Windows_11_Compatibility_Checker.Properties {
         internal static System.Drawing.Bitmap WindowsHelp__Custom_1 {
             get {
                 object obj = ResourceManager.GetObject("WindowsHelp (Custom)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WindowsLoading {
-            get {
-                object obj = ResourceManager.GetObject("WindowsLoading", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

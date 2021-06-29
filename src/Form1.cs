@@ -172,20 +172,23 @@ namespace Windows_11_Compatibility_Checker
             }
             await Delay(200);
             //Secure Boot
-            RegistryKey securebootstatuskey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecureBoot\State");
-            var securebootstatus = securebootstatuskey.GetValue("UEFISecureBootEnabled");
-            if(securebootstatus == null)
+            try
             {
-                secureBootText.Text = "Secure Boot: Not supported";
-                secureBootStatus.Image = Properties.Resources.WindowsCritical;
-            }
-            if ((int)securebootstatus == 1)
+                RegistryKey securebootstatuskey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecureBoot\State");
+                var securebootstatus = securebootstatuskey.GetValue("UEFISecureBootEnabled");
+                if ((int)securebootstatus == 1)
+                {
+                    secureBootText.Text = "Secure Boot: Enabled";
+                    secureBootStatus.Image = Properties.Resources.WindowsSuccess;
+                }
+                else if ((int)securebootstatus == 0)
+                {
+                    secureBootText.Text = "Secure Boot: Disabled. Enable Secure Boot in the BIOS.";
+                    secureBootStatus.Image = Properties.Resources.WindowsCritical;
+                }
+            } catch
             {
-                secureBootText.Text = "Secure Boot: Enabled";
-                secureBootStatus.Image = Properties.Resources.WindowsSuccess;
-            } else if ((int)securebootstatus == 0)
-            {
-                secureBootText.Text = "Secure Boot: Disabled. Enable Secure Boot in the BIOS.";
+                secureBootText.Text = "Secure Boot: Registry Entry not found. You may be using Legacy Boot.";
                 secureBootStatus.Image = Properties.Resources.WindowsCritical;
             }
             await Delay(200);
@@ -280,6 +283,12 @@ namespace Windows_11_Compatibility_Checker
         private async Task Delay(int howlong)
         {
             await Task.Delay(howlong);
+        }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
     }
 }

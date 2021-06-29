@@ -9,7 +9,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Authors>Orange Group Tech</Authors>
     <Copyright>Copyright © Orange Group Tech</Copyright>
-    <Version>1.1</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

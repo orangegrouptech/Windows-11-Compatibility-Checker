@@ -121,11 +121,17 @@
   <data name="WindowsCritical" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsCritical (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="github (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\github (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WindowsHelp (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsHelp (Custom)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WindowsSuccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsSuccess (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Windows 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows 111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WindowsHelp (Custom)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsHelp (Custom)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,7 +142,16 @@
   <data name="WindowsWarning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsWarning (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WindowsLoading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WindowsLoading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circle-cropped (Custom) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-cropped (Custom) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="twitter (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twitter (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="github_white__Custom_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\github white (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="twitter_white__Custom_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twitter white (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
