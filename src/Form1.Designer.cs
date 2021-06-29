@@ -52,6 +52,8 @@ namespace Windows_11_Compatibility_Checker
             this.screenResolutionStatus = new System.Windows.Forms.PictureBox();
             this.screenResolutionText = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.biosModeStatus = new System.Windows.Forms.PictureBox();
+            this.biosModeText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cpuStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpuStatus)).BeginInit();
@@ -61,6 +63,7 @@ namespace Windows_11_Compatibility_Checker
             ((System.ComponentModel.ISupportInitialize)(this.storageImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.screenResolutionStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biosModeStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -143,7 +146,7 @@ namespace Windows_11_Compatibility_Checker
             // secureBootStatus
             // 
             this.secureBootStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.secureBootStatus.Location = new System.Drawing.Point(32, 302);
+            this.secureBootStatus.Location = new System.Drawing.Point(32, 335);
             this.secureBootStatus.Name = "secureBootStatus";
             this.secureBootStatus.Size = new System.Drawing.Size(33, 31);
             this.secureBootStatus.TabIndex = 9;
@@ -153,7 +156,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.secureBootText.AutoSize = true;
             this.secureBootText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.secureBootText.Location = new System.Drawing.Point(63, 301);
+            this.secureBootText.Location = new System.Drawing.Point(63, 334);
             this.secureBootText.Name = "secureBootText";
             this.secureBootText.Size = new System.Drawing.Size(241, 25);
             this.secureBootText.TabIndex = 8;
@@ -191,7 +194,7 @@ namespace Windows_11_Compatibility_Checker
             // tpmStatus
             // 
             this.tpmStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.tpmStatus.Location = new System.Drawing.Point(32, 335);
+            this.tpmStatus.Location = new System.Drawing.Point(32, 368);
             this.tpmStatus.Name = "tpmStatus";
             this.tpmStatus.Size = new System.Drawing.Size(33, 31);
             this.tpmStatus.TabIndex = 17;
@@ -201,7 +204,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.tpmText.AutoSize = true;
             this.tpmText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tpmText.Location = new System.Drawing.Point(63, 334);
+            this.tpmText.Location = new System.Drawing.Point(63, 367);
             this.tpmText.Name = "tpmText";
             this.tpmText.Size = new System.Drawing.Size(128, 25);
             this.tpmText.TabIndex = 16;
@@ -238,7 +241,7 @@ namespace Windows_11_Compatibility_Checker
             // darkModeButton
             // 
             this.darkModeButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.darkModeButton.Location = new System.Drawing.Point(531, 405);
+            this.darkModeButton.Location = new System.Drawing.Point(531, 446);
             this.darkModeButton.Name = "darkModeButton";
             this.darkModeButton.Size = new System.Drawing.Size(106, 31);
             this.darkModeButton.TabIndex = 20;
@@ -249,7 +252,7 @@ namespace Windows_11_Compatibility_Checker
             // screenResolutionStatus
             // 
             this.screenResolutionStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.screenResolutionStatus.Location = new System.Drawing.Point(32, 368);
+            this.screenResolutionStatus.Location = new System.Drawing.Point(32, 401);
             this.screenResolutionStatus.Name = "screenResolutionStatus";
             this.screenResolutionStatus.Size = new System.Drawing.Size(33, 31);
             this.screenResolutionStatus.TabIndex = 22;
@@ -259,7 +262,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.screenResolutionText.AutoSize = true;
             this.screenResolutionText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.screenResolutionText.Location = new System.Drawing.Point(63, 366);
+            this.screenResolutionText.Location = new System.Drawing.Point(63, 399);
             this.screenResolutionText.Name = "screenResolutionText";
             this.screenResolutionText.Size = new System.Drawing.Size(233, 25);
             this.screenResolutionText.TabIndex = 21;
@@ -268,7 +271,7 @@ namespace Windows_11_Compatibility_Checker
             // aboutButton
             // 
             this.aboutButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.aboutButton.Location = new System.Drawing.Point(12, 407);
+            this.aboutButton.Location = new System.Drawing.Point(12, 448);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(106, 29);
             this.aboutButton.TabIndex = 23;
@@ -276,12 +279,33 @@ namespace Windows_11_Compatibility_Checker
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
+            // biosModeStatus
+            // 
+            this.biosModeStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
+            this.biosModeStatus.Location = new System.Drawing.Point(32, 302);
+            this.biosModeStatus.Name = "biosModeStatus";
+            this.biosModeStatus.Size = new System.Drawing.Size(33, 31);
+            this.biosModeStatus.TabIndex = 25;
+            this.biosModeStatus.TabStop = false;
+            // 
+            // biosModeText
+            // 
+            this.biosModeText.AutoSize = true;
+            this.biosModeText.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.biosModeText.Location = new System.Drawing.Point(63, 301);
+            this.biosModeText.Name = "biosModeText";
+            this.biosModeText.Size = new System.Drawing.Size(184, 25);
+            this.biosModeText.TabIndex = 24;
+            this.biosModeText.Text = "BIOS Mode: Checking";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(649, 448);
+            this.ClientSize = new System.Drawing.Size(649, 489);
+            this.Controls.Add(this.biosModeStatus);
+            this.Controls.Add(this.biosModeText);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.screenResolutionStatus);
             this.Controls.Add(this.screenResolutionText);
@@ -319,6 +343,7 @@ namespace Windows_11_Compatibility_Checker
             ((System.ComponentModel.ISupportInitialize)(this.storageImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.screenResolutionStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.biosModeStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +373,8 @@ namespace Windows_11_Compatibility_Checker
         private System.Windows.Forms.PictureBox screenResolutionStatus;
         private System.Windows.Forms.Label screenResolutionText;
         private System.Windows.Forms.Button aboutButton;
+        private System.Windows.Forms.PictureBox biosModeStatus;
+        private System.Windows.Forms.Label biosModeText;
     }
 }
 

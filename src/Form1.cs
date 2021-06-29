@@ -38,6 +38,7 @@ namespace Windows_11_Compatibility_Checker
                 cpuArchitectureText.ForeColor = System.Drawing.Color.White;
                 storageText.ForeColor = System.Drawing.Color.White;
                 secureBootText.ForeColor = System.Drawing.Color.White;
+                biosModeText.ForeColor = System.Drawing.Color.White;
                 tpmText.ForeColor = System.Drawing.Color.White;
                 screenResolutionText.ForeColor = System.Drawing.Color.White;
                 darkModeButton.Text = "Light Mode";
@@ -54,6 +55,7 @@ namespace Windows_11_Compatibility_Checker
                 cpuArchitectureText.ForeColor = System.Drawing.Color.Black;
                 storageText.ForeColor = System.Drawing.Color.Black;
                 secureBootText.ForeColor = System.Drawing.Color.Black;
+                biosModeText.ForeColor = System.Drawing.Color.Black;
                 tpmText.ForeColor = System.Drawing.Color.Black;
                 screenResolutionText.ForeColor = System.Drawing.Color.Black;
                 darkModeButton.Text = "Dark Mode";
@@ -171,6 +173,35 @@ namespace Windows_11_Compatibility_Checker
                 storageImage.Image = Properties.Resources.WindowsCritical;
             }
             await Delay(200);
+            //BIOS Mode
+            Process process2 = new Process();
+            process2.StartInfo.UseShellExecute = false;
+            process2.StartInfo.RedirectStandardOutput = true;
+            process2.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
+            process2.StartInfo.Arguments = "bcdedit";
+            process2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process2.StartInfo.Verb = "runas";
+            process2.Start();
+            string s2 = process2.StandardOutput.ReadToEnd();
+            process2.WaitForExit();
+
+            using (StreamWriter outfile = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt"))
+            {
+                outfile.Write(s2);
+            }
+            using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt"))
+            {
+                string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt");
+                if (lines[19].Contains(@"path                    \WINDOWS\system32\winload.efi"))
+                {
+                    biosModeStatus.Image = Properties.Resources.WindowsSuccess;
+                    biosModeText.Text = "BIOS Mode: UEFI";
+                } else
+                {
+                    biosModeStatus.Image = Properties.Resources.WindowsCritical;
+                    biosModeText.Text = "BIOS Mode: Legacy";
+                }
+            }
             //Secure Boot
             try
             {
