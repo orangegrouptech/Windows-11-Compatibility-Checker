@@ -104,6 +104,7 @@ namespace Windows_11_Compatibility_Checker
             this.cpuStatus.Size = new System.Drawing.Size(33, 31);
             this.cpuStatus.TabIndex = 3;
             this.cpuStatus.TabStop = false;
+            this.cpuStatus.Click += new System.EventHandler(this.cpuStatus_Click);
             // 
             // ramImage
             // 
@@ -113,6 +114,7 @@ namespace Windows_11_Compatibility_Checker
             this.ramImage.Size = new System.Drawing.Size(33, 31);
             this.ramImage.TabIndex = 5;
             this.ramImage.TabStop = false;
+            this.ramImage.Click += new System.EventHandler(this.ramImage_Click);
             // 
             // memoryAmount
             // 
@@ -132,6 +134,7 @@ namespace Windows_11_Compatibility_Checker
             this.gpuStatus.Size = new System.Drawing.Size(33, 31);
             this.gpuStatus.TabIndex = 7;
             this.gpuStatus.TabStop = false;
+            this.gpuStatus.Click += new System.EventHandler(this.gpuStatus_Click);
             // 
             // gpuText
             // 
@@ -151,6 +154,7 @@ namespace Windows_11_Compatibility_Checker
             this.secureBootStatus.Size = new System.Drawing.Size(33, 31);
             this.secureBootStatus.TabIndex = 9;
             this.secureBootStatus.TabStop = false;
+            this.secureBootStatus.Click += new System.EventHandler(this.secureBootStatus_Click);
             // 
             // secureBootText
             // 
@@ -170,6 +174,7 @@ namespace Windows_11_Compatibility_Checker
             this.cpuArchitectureStatus.Size = new System.Drawing.Size(33, 31);
             this.cpuArchitectureStatus.TabIndex = 11;
             this.cpuArchitectureStatus.TabStop = false;
+            this.cpuArchitectureStatus.Click += new System.EventHandler(this.cpuArchitectureStatus_Click);
             // 
             // cpuArchitectureText
             // 
@@ -199,6 +204,7 @@ namespace Windows_11_Compatibility_Checker
             this.tpmStatus.Size = new System.Drawing.Size(33, 31);
             this.tpmStatus.TabIndex = 17;
             this.tpmStatus.TabStop = false;
+            this.tpmStatus.Click += new System.EventHandler(this.tpmStatus_Click);
             // 
             // tpmText
             // 
@@ -218,6 +224,7 @@ namespace Windows_11_Compatibility_Checker
             this.storageImage.Size = new System.Drawing.Size(33, 31);
             this.storageImage.TabIndex = 15;
             this.storageImage.TabStop = false;
+            this.storageImage.Click += new System.EventHandler(this.storageImage_Click);
             // 
             // notificationStatus
             // 
@@ -257,6 +264,7 @@ namespace Windows_11_Compatibility_Checker
             this.screenResolutionStatus.Size = new System.Drawing.Size(33, 31);
             this.screenResolutionStatus.TabIndex = 22;
             this.screenResolutionStatus.TabStop = false;
+            this.screenResolutionStatus.Click += new System.EventHandler(this.screenResolutionStatus_Click);
             // 
             // screenResolutionText
             // 
@@ -287,6 +295,7 @@ namespace Windows_11_Compatibility_Checker
             this.biosModeStatus.Size = new System.Drawing.Size(33, 31);
             this.biosModeStatus.TabIndex = 25;
             this.biosModeStatus.TabStop = false;
+            this.biosModeStatus.Click += new System.EventHandler(this.biosModeStatus_Click);
             // 
             // biosModeText
             // 

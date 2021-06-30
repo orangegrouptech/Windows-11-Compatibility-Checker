@@ -323,5 +323,50 @@ namespace Windows_11_Compatibility_Checker
             Form2 form2 = new Form2();
             form2.ShowDialog();
         }
+
+        private void cpuStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires a compatible 64-bit processor. Examples of compatible processors are: \n• 8th Gen Intel Core and above\n• AMD Ryzen based on Zen+ and above (except Ryzen 3 2200G and Ryzen 5 2400G).\n5th and 6th Gen Intel as well as Zen 1 and the 2200G and 2400G are vulnerable to Spectre, while the rest do not support TPM.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ramImage_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 needs at least 4GB of RAM.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void gpuStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires a GPU that is compatible with DirectX 12 or later with a WDDM 2.0 driver.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cpuArchitectureStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires a 64-bit processor and operating system. If you're running a 32-bit OS and your CPU supports 64-bit, you need to wipe the drive and reinstall a 64-bit OS.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void storageImage_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires at least 64GB of storage on the boot drive.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void biosModeStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 is UEFI-only. Legacy BIOS is not supported.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void secureBootStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires Secure Boot.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tpmStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires TPM 2.0.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void screenResolutionStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Windows 11 requires a display with a 720p resolution and higher.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
