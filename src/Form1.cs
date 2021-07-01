@@ -192,15 +192,19 @@ namespace Windows_11_Compatibility_Checker
             using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt"))
             {
                 string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt");
-                if (lines.Contains(@"path                    \WINDOWS\system32\winload.efi")/* || lines[20].Contains(@"path                    \WINDOWS\system32\winload.efi")*/)
+                for(var i = 0; i < lines.Length; i++)
                 {
-                    biosModeStatus.Image = Properties.Resources.WindowsSuccess;
-                    biosModeText.Text = "BIOS Mode: UEFI";
-                } else
-                {
-                    biosModeStatus.Image = Properties.Resources.WindowsCritical;
-                    biosModeText.Text = "BIOS Mode: Legacy";
+                    if (lines[i].ToLower().Contains(@"path                    \windows\system32\winload.efi")/* || lines[20].Contains(@"path                    \WINDOWS\system32\winload.efi")*/)
+                    {
+                        biosModeStatus.Image = Properties.Resources.WindowsSuccess;
+                        biosModeText.Text = "BIOS Mode: UEFI";
+                    } else
+                    {
+                        biosModeStatus.Image = Properties.Resources.WindowsCritical;
+                        biosModeText.Text = "BIOS Mode: Legacy";
+                    }
                 }
+                
             }
             //Secure Boot
             try

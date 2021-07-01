@@ -109,7 +109,7 @@ namespace Windows_11_Compatibility_Checker
             // ramImage
             // 
             this.ramImage.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.ramImage.Location = new System.Drawing.Point(32, 170);
+            this.ramImage.Location = new System.Drawing.Point(32, 169);
             this.ramImage.Name = "ramImage";
             this.ramImage.Size = new System.Drawing.Size(33, 31);
             this.ramImage.TabIndex = 5;
@@ -120,7 +120,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.memoryAmount.AutoSize = true;
             this.memoryAmount.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.memoryAmount.Location = new System.Drawing.Point(63, 168);
+            this.memoryAmount.Location = new System.Drawing.Point(63, 167);
             this.memoryAmount.Name = "memoryAmount";
             this.memoryAmount.Size = new System.Drawing.Size(132, 25);
             this.memoryAmount.TabIndex = 4;
@@ -129,7 +129,7 @@ namespace Windows_11_Compatibility_Checker
             // gpuStatus
             // 
             this.gpuStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.gpuStatus.Location = new System.Drawing.Point(32, 203);
+            this.gpuStatus.Location = new System.Drawing.Point(32, 202);
             this.gpuStatus.Name = "gpuStatus";
             this.gpuStatus.Size = new System.Drawing.Size(33, 31);
             this.gpuStatus.TabIndex = 7;
@@ -140,7 +140,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.gpuText.AutoSize = true;
             this.gpuText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.gpuText.Location = new System.Drawing.Point(63, 202);
+            this.gpuText.Location = new System.Drawing.Point(63, 201);
             this.gpuText.Name = "gpuText";
             this.gpuText.Size = new System.Drawing.Size(127, 25);
             this.gpuText.TabIndex = 6;
@@ -149,7 +149,7 @@ namespace Windows_11_Compatibility_Checker
             // secureBootStatus
             // 
             this.secureBootStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.secureBootStatus.Location = new System.Drawing.Point(32, 335);
+            this.secureBootStatus.Location = new System.Drawing.Point(32, 334);
             this.secureBootStatus.Name = "secureBootStatus";
             this.secureBootStatus.Size = new System.Drawing.Size(33, 31);
             this.secureBootStatus.TabIndex = 9;
@@ -160,7 +160,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.secureBootText.AutoSize = true;
             this.secureBootText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.secureBootText.Location = new System.Drawing.Point(63, 334);
+            this.secureBootText.Location = new System.Drawing.Point(63, 333);
             this.secureBootText.Name = "secureBootText";
             this.secureBootText.Size = new System.Drawing.Size(241, 25);
             this.secureBootText.TabIndex = 8;
@@ -169,7 +169,7 @@ namespace Windows_11_Compatibility_Checker
             // cpuArchitectureStatus
             // 
             this.cpuArchitectureStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.cpuArchitectureStatus.Location = new System.Drawing.Point(32, 236);
+            this.cpuArchitectureStatus.Location = new System.Drawing.Point(32, 235);
             this.cpuArchitectureStatus.Name = "cpuArchitectureStatus";
             this.cpuArchitectureStatus.Size = new System.Drawing.Size(33, 31);
             this.cpuArchitectureStatus.TabIndex = 11;
@@ -180,7 +180,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.cpuArchitectureText.AutoSize = true;
             this.cpuArchitectureText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.cpuArchitectureText.Location = new System.Drawing.Point(63, 235);
+            this.cpuArchitectureText.Location = new System.Drawing.Point(63, 234);
             this.cpuArchitectureText.Name = "cpuArchitectureText";
             this.cpuArchitectureText.Size = new System.Drawing.Size(225, 25);
             this.cpuArchitectureText.TabIndex = 10;
@@ -190,7 +190,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.storageText.AutoSize = true;
             this.storageText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.storageText.Location = new System.Drawing.Point(63, 268);
+            this.storageText.Location = new System.Drawing.Point(63, 267);
             this.storageText.Name = "storageText";
             this.storageText.Size = new System.Drawing.Size(154, 25);
             this.storageText.TabIndex = 14;
@@ -199,7 +199,7 @@ namespace Windows_11_Compatibility_Checker
             // tpmStatus
             // 
             this.tpmStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.tpmStatus.Location = new System.Drawing.Point(32, 368);
+            this.tpmStatus.Location = new System.Drawing.Point(32, 367);
             this.tpmStatus.Name = "tpmStatus";
             this.tpmStatus.Size = new System.Drawing.Size(33, 31);
             this.tpmStatus.TabIndex = 17;
@@ -210,7 +210,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.tpmText.AutoSize = true;
             this.tpmText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tpmText.Location = new System.Drawing.Point(63, 367);
+            this.tpmText.Location = new System.Drawing.Point(63, 366);
             this.tpmText.Name = "tpmText";
             this.tpmText.Size = new System.Drawing.Size(128, 25);
             this.tpmText.TabIndex = 16;
@@ -219,7 +219,7 @@ namespace Windows_11_Compatibility_Checker
             // storageImage
             // 
             this.storageImage.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.storageImage.Location = new System.Drawing.Point(32, 269);
+            this.storageImage.Location = new System.Drawing.Point(32, 268);
             this.storageImage.Name = "storageImage";
             this.storageImage.Size = new System.Drawing.Size(33, 31);
             this.storageImage.TabIndex = 15;
@@ -259,7 +259,7 @@ namespace Windows_11_Compatibility_Checker
             // screenResolutionStatus
             // 
             this.screenResolutionStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.screenResolutionStatus.Location = new System.Drawing.Point(32, 401);
+            this.screenResolutionStatus.Location = new System.Drawing.Point(32, 400);
             this.screenResolutionStatus.Name = "screenResolutionStatus";
             this.screenResolutionStatus.Size = new System.Drawing.Size(33, 31);
             this.screenResolutionStatus.TabIndex = 22;
@@ -270,7 +270,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.screenResolutionText.AutoSize = true;
             this.screenResolutionText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.screenResolutionText.Location = new System.Drawing.Point(63, 399);
+            this.screenResolutionText.Location = new System.Drawing.Point(63, 398);
             this.screenResolutionText.Name = "screenResolutionText";
             this.screenResolutionText.Size = new System.Drawing.Size(233, 25);
             this.screenResolutionText.TabIndex = 21;
@@ -290,7 +290,7 @@ namespace Windows_11_Compatibility_Checker
             // biosModeStatus
             // 
             this.biosModeStatus.Image = global::Windows_11_Compatibility_Checker.Properties.Resources.WindowsHelp__Custom_1;
-            this.biosModeStatus.Location = new System.Drawing.Point(32, 302);
+            this.biosModeStatus.Location = new System.Drawing.Point(32, 301);
             this.biosModeStatus.Name = "biosModeStatus";
             this.biosModeStatus.Size = new System.Drawing.Size(33, 31);
             this.biosModeStatus.TabIndex = 25;
@@ -301,7 +301,7 @@ namespace Windows_11_Compatibility_Checker
             // 
             this.biosModeText.AutoSize = true;
             this.biosModeText.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.biosModeText.Location = new System.Drawing.Point(63, 301);
+            this.biosModeText.Location = new System.Drawing.Point(63, 300);
             this.biosModeText.Name = "biosModeText";
             this.biosModeText.Size = new System.Drawing.Size(184, 25);
             this.biosModeText.TabIndex = 24;
