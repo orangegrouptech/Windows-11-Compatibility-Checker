@@ -1,0 +1,10 @@
+.vs
+bin/Debug
+bin/Release
+obj/Debug
+obj/Release
+obj/project.assets.json
+obj/project.nuget.cache
+obj/Windows Compatibility Checker WPF.csproj
+obj/Windows Compatibility Checker WPF.csproj.nuget.g.props
+obj/Windows 11 Compatibility Checker WPF.csproj.nuget.g.targets

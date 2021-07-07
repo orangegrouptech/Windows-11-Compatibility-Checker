@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Windows_11_Compatibility_Checker.Properties {
+namespace Windows_11_Compatibility_Checker_WPF.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Windows_11_Compatibility_Checker.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Windows_11_Compatibility_Checker.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Windows_11_Compatibility_Checker_WPF.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Windows_11_Compatibility_Checker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap circle_cropped__Custom___1_1 {
+        internal static System.Drawing.Bitmap circle_cropped__Custom___1_ {
             get {
-                object obj = ResourceManager.GetObject("circle-cropped (Custom) (1)1", resourceCulture);
+                object obj = ResourceManager.GetObject("circle_cropped__Custom___1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -121,50 +121,20 @@ namespace Windows_11_Compatibility_Checker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap github__Custom_ {
-            get {
-                object obj = ResourceManager.GetObject("github (Custom)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap github_white__Custom_ {
-            get {
-                object obj = ResourceManager.GetObject("github_white__Custom_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap twitter__Custom_ {
-            get {
-                object obj = ResourceManager.GetObject("twitter (Custom)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap twitter_white__Custom_ {
-            get {
-                object obj = ResourceManager.GetObject("twitter_white__Custom_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Windows_11 {
             get {
-                object obj = ResourceManager.GetObject("Windows 11", resourceCulture);
+                object obj = ResourceManager.GetObject("Windows_11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Windows_111 {
+            get {
+                object obj = ResourceManager.GetObject("Windows_111", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -181,19 +151,9 @@ namespace Windows_11_Compatibility_Checker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WindowsHelp__Custom_ {
+        internal static System.Drawing.Bitmap WindowsHelp {
             get {
-                object obj = ResourceManager.GetObject("WindowsHelp (Custom)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WindowsHelp__Custom_1 {
-            get {
-                object obj = ResourceManager.GetObject("WindowsHelp (Custom)1", resourceCulture);
+                object obj = ResourceManager.GetObject("WindowsHelp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
