@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Orange Group Tech\\Documents\\GitHub\\Windows 11 Compatibility Checker WPF\\Windows 11 Compatibility Checker WPF.csproj": {
-      "version": "2.0.0",
+      "version": "2.0.2",
       "restore": {
         "projectUniqueName": "C:\\Users\\Orange Group Tech\\Documents\\GitHub\\Windows 11 Compatibility Checker WPF\\Windows 11 Compatibility Checker WPF.csproj",
         "projectName": "Windows 11 Compatibility Checker WPF",
@@ -44,11 +44,6 @@
         "net45": {
           "targetAlias": "net45",
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
         }
       }
     }
