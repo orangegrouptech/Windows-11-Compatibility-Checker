@@ -21,7 +21,7 @@
         <Label Name="memoryAmount" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="4" Margin="0,0,0,95" HorizontalAlignment="Right" VerticalAlignment="Bottom" >RAM: Checking</Label>
         <Label Name="cpuName" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="2" Margin="0,0,0,127" HorizontalAlignment="Right" VerticalAlignment="Bottom" >CPU: Checking</Label>
         <Label Name="yourSpecsTitle" Height="37" Width="119" FontSize="20" FontFamily="Segoe UI Variable Display" TabIndex="1" Margin="0,0,503,157" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Your Specs:</Label>
-        <Label Name="Title" Height="46" Width="477" FontSize="26.667" FontFamily="Segoe UI Variable Display" TabIndex="0" Margin="0,0,149,198" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Windows 11 Compatibility at a glance</Label>
+        <Label Name="Title" Height="46" Width="640" FontSize="26.667" FontFamily="Segoe UI Variable Display" TabIndex="0" Margin="0,0,-14,198" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontWeight="Bold" >Windows 11 Compatibility at a glance</Label>
         <Image x:Name="cpuStatus" HorizontalAlignment="Left" Height="26" Margin="33,125,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None"/>
         <Image x:Name="ramImage" HorizontalAlignment="Left" Height="26" Margin="33,157,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None"/>
         <Image x:Name="gpuStatus" HorizontalAlignment="Left" Height="26" Margin="33,192,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None"/>
