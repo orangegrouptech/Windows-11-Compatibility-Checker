@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -49,6 +51,29 @@ namespace Windows_11_Compatibility_Checker_WPF
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void checkForUpdates_Click(object sender, RoutedEventArgs e)
+        {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            WebClient wc = new WebClient();
+            wc.DownloadFile("http://github.com/orangegrouptech/Windows-11-Compatibility-Checker/raw/main/version.txt", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\version.txt");
+            using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\version.txt"))
+            {
+                string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\version.txt");
+                for (int x = 0; x < lines.Length; x++)
+                {
+                    if(lines[x] == "2.1")
+                    {
+                        MessageBox.Show("Windows 11 Compatibility Checker is up to date.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                    } else
+                    {
+                        MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.1\nLatest Version: "+lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+            }
         }
     }
 }

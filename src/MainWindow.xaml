@@ -12,7 +12,7 @@
         <Button Name="aboutButton" Height="31" Width="106" TabIndex="23" Click="aboutButton_Click" Margin="0,0,533,18.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Segoe UI Variable Display" FontSize="16" Grid.Row="1" >About</Button>
         <Label Name="screenResolutionText" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="21" Margin="0,0,0,72.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" >Screen Resolution: Checking</Label>
         <Button Name="darkModeButton" Height="31" Width="106" TabIndex="20" Click="darkModeButton_Click" Margin="0,0,10,18" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI Variable Display" Grid.Row="1" >Dark Mode</Button>
-        <Label Name="notificationText" Height="34" Width="484" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="19" Margin="0,0,0,242" HorizontalAlignment="Right" VerticalAlignment="Bottom" >No new alerts from the checker. Nice!</Label>
+        <Label Name="notificationText" Height="34" Width="663" FontSize="17.333" TabIndex="19" Margin="0,0,-194,244" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Segoe UI Variable Display" >No new alerts from the checker. Nice!</Label>
         <Label Name="tpmText" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="16" Margin="0,0,0,104.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" >TPM: Checking</Label>
         <Label Name="storageText" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="14" Margin="0,0,0,203.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.RowSpan="2" >Storage: Checking</Label>
         <Label Name="cpuArchitectureText" Height="34" Width="586" FontSize="17.333" FontFamily="Segoe UI Variable Display" TabIndex="10" Margin="0,0,0,27" HorizontalAlignment="Right" VerticalAlignment="Bottom" >CPU Architecture: Checking</Label>
@@ -31,7 +31,7 @@
         <Image x:Name="secureBootStatus" HorizontalAlignment="Left" Height="26" Margin="33,43,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
         <Image x:Name="tpmStatus" HorizontalAlignment="Left" Height="26" Margin="33,76,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
         <Image x:Name="screenResolutionStatus" HorizontalAlignment="Left" Height="26" Margin="33,108,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
-        <Image x:Name="notificationStatus" HorizontalAlignment="Left" Height="26" Margin="135,9,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsSuccess (Custom).png" Stretch="None"/>
+        <Image x:Name="notificationStatus" HorizontalAlignment="Left" Height="26" Margin="151,9,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/WindowsSuccess (Custom).png" Stretch="None"/>
         <Button x:Name="aboutButton_Copy" Height="31" Width="172" TabIndex="23" Click="sysRequirementsButton_Click" Margin="0,0,234,18.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Segoe UI Variable Display" FontSize="16" Content="System Requirements" Grid.Row="1" RenderTransformOrigin="1.6,0.763" />
     </Grid>
 </Window>

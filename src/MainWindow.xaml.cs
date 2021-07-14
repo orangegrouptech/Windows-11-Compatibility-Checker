@@ -104,7 +104,19 @@ namespace Windows_11_Compatibility_Checker_WPF
             if (windowsversion >= 21996)
             {
                 notificationText.Content = "You\'re already running Windows 11 you fool";
+                notificationText.Margin = new Thickness(0, 0, -180, 243);
+                notificationStatus.Margin = new Thickness(135, 9, 0, 0);
                 notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+            } else
+            {
+                var checkedition = checkwindowsversion.GetValue("EditionID");
+                if((string)checkedition == "Home")
+                {
+                    notificationText.Content = "Looks like you're using the Home SKU. Internet Connection is required to upgrade.";
+                    notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                    notificationStatus.Margin = new Thickness(-8, 9, 0, 0);
+                    notificationText.Margin = new Thickness(0, 0, -35, 243);
+                }
             }
 
 
@@ -252,6 +264,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             process2.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
             process2.StartInfo.Arguments = "bcdedit";
             process2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process2.StartInfo.CreateNoWindow = true;
             process2.StartInfo.Verb = "runas";
             process2.Start();
             string s2 = process2.StandardOutput.ReadToEnd();
@@ -315,6 +328,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             process.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
             process.StartInfo.Arguments = "Get-TPM";
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process.StartInfo.CreateNoWindow = true;
             process.StartInfo.Verb = "runas";
             process.Start();
             string s = process.StandardOutput.ReadToEnd();
