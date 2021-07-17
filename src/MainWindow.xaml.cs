@@ -432,7 +432,7 @@ namespace Windows_11_Compatibility_Checker_WPF
 
         private void sysRequirementsButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("CPU:\nWindows 11 requires a compatible 64-bit processor: \n• 8th Gen Intel Core and above\n• AMD Ryzen based on Zen+ and above (except Ryzen 3 2200G and Ryzen 5 2400G).\n6th Gen Intel and below as well as Zen 1 and below are vulnerable to Spectre (Meltdown for Intel CPUs)." +
+            /*System.Windows.MessageBox.Show("CPU:\nWindows 11 requires a compatible 64-bit processor: \n• 8th Gen Intel Core and above\n• AMD Ryzen based on Zen+ and above (except Ryzen 3 2200G and Ryzen 5 2400G).\n6th Gen Intel and below as well as Zen 1 and below are vulnerable to Spectre (Meltdown for Intel CPUs)." +
                 "\n\nRAM:\nWindows 11 requires at least 4GB of RAM.\n\n" +
                 "GPU: \nWindows 11 requires a GPU that's compatible with DirectX 12 and later.\n\n" +
                 "Architecture: \nWindows 11 requires a 64-bit processor and operating system. If you are using a 32-bit OS but your CPU supports 64-bit, you need to wipe the drive and reinstall Windows.\n\n" +
@@ -441,6 +441,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 "Secure Boot:\nWindows 11 requires Secure Boot.\n\n" +
                 "TPM:\nWindows 11 requires TPM 2.0.\n\n" +
                 "Screen resolution: \nWindows 11 requires a display with a 720p resolution (1280 x 720) and higher.", "System Requirements", MessageBoxButton.OK, MessageBoxImage.Information);
+            */
+            Window2 window2 = new Window2();
+            window2.ShowDialog();
         }
     }
 }

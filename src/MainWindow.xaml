@@ -31,7 +31,7 @@
         <Image x:Name="secureBootStatus" HorizontalAlignment="Left" Height="26" Margin="33,43,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
         <Image x:Name="tpmStatus" HorizontalAlignment="Left" Height="26" Margin="33,76,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
         <Image x:Name="screenResolutionStatus" HorizontalAlignment="Left" Height="26" Margin="33,108,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/WindowsHelp (Custom).png" Stretch="None" Grid.Row="1"/>
-        <Image x:Name="notificationStatus" HorizontalAlignment="Left" Height="26" Margin="151,9,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/WindowsSuccess (Custom).png" Stretch="None"/>
+        <Image x:Name="notificationStatus" HorizontalAlignment="Left" Height="26" Margin="151,9,0,0" VerticalAlignment="Top" Width="29" Source="/Resources/WindowsSuccess (Custom).png" Stretch="None"/>
         <Button x:Name="aboutButton_Copy" Height="31" Width="172" TabIndex="23" Click="sysRequirementsButton_Click" Margin="0,0,234,18.333" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Segoe UI Variable Display" FontSize="16" Content="System Requirements" Grid.Row="1" RenderTransformOrigin="1.6,0.763" />
     </Grid>
 </Window>

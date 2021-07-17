@@ -45,7 +45,6 @@ namespace Windows_11_Compatibility_Checker_WPF
                 credits.Foreground = Brushes.White;
                 creditTesters.Foreground = Brushes.White;
             }
-            
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
