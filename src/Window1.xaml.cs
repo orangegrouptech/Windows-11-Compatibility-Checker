@@ -63,13 +63,13 @@ namespace Windows_11_Compatibility_Checker_WPF
                 string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\version.txt");
                 for (int x = 0; x < lines.Length; x++)
                 {
-                    if(lines[x] == "2.1")
+                    if(lines[x] == "2.2.1")
                     {
                         MessageBox.Show("Windows 11 Compatibility Checker is up to date.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                         break;
                     } else
                     {
-                        MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.1\nLatest Version: "+lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.2.1\nLatest Version: "+lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
