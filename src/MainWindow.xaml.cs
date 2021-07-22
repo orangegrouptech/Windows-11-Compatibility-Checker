@@ -199,9 +199,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 }
             }
             await Delay(200);
-            
-            
-            
+
+
+
             //GPU
             Process.Start("dxdiag", "/x " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\dxv.xml");
             while (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\dxv.xml"))
@@ -210,21 +210,31 @@ namespace Windows_11_Compatibility_Checker_WPF
             doc.Load(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\dxv.xml");
             XmlNode dxd = doc.SelectSingleNode("//DxDiag");
             XmlNode dxv = dxd.SelectSingleNode("//DirectXVersion");
+            XmlNode dxm = dxd.SelectSingleNode("//DriverModel");
             var dxversion = Convert.ToInt32(dxv.InnerText.Split(' ')[1]);
+            Version wddmversion = new Version(dxm.InnerText.Split(' ')[1]);
             if (dxversion < 12)
             {
-                gpuText.Content = "GPU: DirectX " + dxversion + ". Update to DirectX 12 or get a GPU that supports it.";
+                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmversion + ". Update to DirectX 12 or get a GPU with DX12.";
                 gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
             }
             else
             {
-                gpuText.Content = "GPU: DirectX " + dxversion;
-                gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmversion;
+
+                if (wddmversion < new Version("2.0"))
+                {
+                    gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                }
+                else
+                {
+                    gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                }
             }
             await Delay(200);
-            
-            
-            
+
+
+
             //CPU Architecture
             bool is64 = System.Environment.Is64BitOperatingSystem;
             if (is64 == true)
@@ -318,9 +328,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 secureBootStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
             }
             await Delay(200);
-            
-            
-            
+
+
+
             //TPM
             var process = new Process();
             process.StartInfo.UseShellExecute = false;
@@ -344,16 +354,39 @@ namespace Windows_11_Compatibility_Checker_WPF
 
                 if (lines[2].Contains("TpmPresent                : True"))
                 {
-                    if (lines[4].Contains("TpmEnabled                : True"))
+                    //TPM VERSION [WMIC]
+                    Process wmicTPMVersionProcess = new Process();
+                    wmicTPMVersionProcess.StartInfo.UseShellExecute = false;
+                    wmicTPMVersionProcess.StartInfo.RedirectStandardOutput = true;
+                    wmicTPMVersionProcess.StartInfo.FileName = @"C:\Windows\System32\Wbem\wmic.exe";
+                    wmicTPMVersionProcess.StartInfo.Arguments = @"/namespace:\\root\CIMV2\Security\MicrosoftTpm path Win32_Tpm get PhysicalPresenceVersionInfo";
+                    wmicTPMVersionProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    wmicTPMVersionProcess.StartInfo.CreateNoWindow = true;
+                    wmicTPMVersionProcess.StartInfo.Verb = "runas";
+                    wmicTPMVersionProcess.Start();
+
+                    Version tpmVersion = new Version(wmicTPMVersionProcess.StandardOutput.ReadToEnd().Split('\n')[1]);
+                    wmicTPMVersionProcess.WaitForExit();
+
+                    if (tpmVersion < new Version("2.0"))
                     {
-                        tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
-                        tpmText.Content = "TPM: Present and enabled";
+                        tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                        tpmText.Content = "TPM: Version " + tpmVersion;
                     }
                     else
                     {
-                        tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
-                        tpmText.Content = "TPM: Present but not enabled";
+                        if (lines[4].Contains("TpmEnabled                : True"))
+                        {
+                            tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                            tpmText.Content = "TPM: Version " + tpmVersion + ", Present and enabled";
+                        }
+                        else
+                        {
+                            tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                            tpmText.Content = "TPM: Version " + tpmVersion + ", Present but not enabled";
+                        }
                     }
+
                     sr.Close();
                 }
                 else
@@ -362,9 +395,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                     tpmText.Content = "TPM: Not present";
                 }
             }
-            
-            
-            
+
+
+
             //Screen Resolution
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
             int screenHeight = Screen.PrimaryScreen.Bounds.Height;
