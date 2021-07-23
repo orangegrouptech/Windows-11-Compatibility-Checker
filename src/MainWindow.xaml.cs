@@ -211,9 +211,9 @@ namespace Windows_11_Compatibility_Checker_WPF
             XmlNode dxd = doc.SelectSingleNode("//DxDiag");
             XmlNode dxv = dxd.SelectSingleNode("//DirectXVersion");
             XmlNode dxm = dxd.SelectSingleNode("//DriverModel");
-            var dxversion = Convert.ToInt32(dxv.InnerText.Split(' ')[1]);
+            Version dxversion = new Version(dxv.InnerText.Split(' ')[1] + ".0");
             Version wddmversion = new Version(dxm.InnerText.Split(' ')[1]);
-            if (dxversion < 12)
+            if (dxversion < new Version("12.0"))
             {
                 gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmversion + ". Update to DirectX 12 or get a GPU with DX12.";
                 gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
@@ -359,13 +359,13 @@ namespace Windows_11_Compatibility_Checker_WPF
                     wmicTPMVersionProcess.StartInfo.UseShellExecute = false;
                     wmicTPMVersionProcess.StartInfo.RedirectStandardOutput = true;
                     wmicTPMVersionProcess.StartInfo.FileName = @"C:\Windows\System32\Wbem\wmic.exe";
-                    wmicTPMVersionProcess.StartInfo.Arguments = @"/namespace:\\root\CIMV2\Security\MicrosoftTpm path Win32_Tpm get PhysicalPresenceVersionInfo";
+                    wmicTPMVersionProcess.StartInfo.Arguments = @"/namespace:\\root\CIMV2\Security\MicrosoftTpm path Win32_Tpm get SpecVersion";
                     wmicTPMVersionProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     wmicTPMVersionProcess.StartInfo.CreateNoWindow = true;
                     wmicTPMVersionProcess.StartInfo.Verb = "runas";
                     wmicTPMVersionProcess.Start();
 
-                    Version tpmVersion = new Version(wmicTPMVersionProcess.StandardOutput.ReadToEnd().Split('\n')[1]);
+                    Version tpmVersion = new Version(wmicTPMVersionProcess.StandardOutput.ReadToEnd().Split('\n')[1].Split(',')[0]);
                     wmicTPMVersionProcess.WaitForExit();
 
                     if (tpmVersion < new Version("2.0"))
