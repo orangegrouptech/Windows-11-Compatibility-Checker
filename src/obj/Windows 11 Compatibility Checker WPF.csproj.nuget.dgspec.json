@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Orange Group Tech\\Documents\\GitHub\\Windows 11 Compatibility Checker WPF\\Windows 11 Compatibility Checker WPF.csproj": {
-      "version": "2.3.1",
+      "version": "2.3.2",
       "restore": {
         "projectUniqueName": "C:\\Users\\Orange Group Tech\\Documents\\GitHub\\Windows 11 Compatibility Checker WPF\\Windows 11 Compatibility Checker WPF.csproj",
         "projectName": "Windows 11 Compatibility Checker WPF",
@@ -28,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

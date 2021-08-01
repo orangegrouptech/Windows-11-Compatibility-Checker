@@ -143,31 +143,32 @@ namespace Windows_11_Compatibility_Checker_WPF
 
             //CPU
             ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
-            foreach (ManagementObject mo in mos.Get())
-            {
-                cpuName.Content = "CPU: " + (string)mo["Name"];
-            }
-            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
-            //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\AMD.txt");
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt", Properties.Resources.CPUs);
-            using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt"))
-            {
-                string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt");
-                for (int x = 0; x < lines.Length; x++)
+
+                foreach (ManagementObject mo in mos.Get())
                 {
-                    if (cpuName.Content.ToString().Contains(lines[x]))
+                    cpuName.Content = "CPU: " + (string)mo["Name"];
+                }
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
+                //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\AMD.txt");
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt", Properties.Resources.CPUs);
+                using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt"))
+                {
+                    string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\CPUs.txt");
+                    for (int x = 0; x < lines.Length; x++)
                     {
-                        cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
-                        sr.Close();
-                        break;
-                    }
-                    else
-                    {
-                        cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                        if (cpuName.Content.ToString().Contains(lines[x]))
+                        {
+                            cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                            sr.Close();
+                            break;
+                        }
+                        else
+                        {
+                            cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                        }
                     }
                 }
-            }
-            await Delay(200);
+                await Delay(200); 
             
             
             
@@ -208,21 +209,39 @@ namespace Windows_11_Compatibility_Checker_WPF
                 Thread.Sleep(100);
             XmlDocument doc = new XmlDocument();
             doc.Load(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\dxv.xml");
-            XmlNode dxd = doc.SelectSingleNode("//DxDiag");
-            XmlNode dxv = dxd.SelectSingleNode("//DirectXVersion");
-            XmlNode dxm = dxd.SelectSingleNode("//DriverModel");
-            Version dxversion = new Version(dxv.InnerText.Split(' ')[1] + ".0");
-            Version wddmversion = new Version(dxm.InnerText.Split(' ')[1]);
+
+            // GET LIST OF GFX ADAPTERS PRESENT
+            XmlNodeList dxdevList = doc.SelectNodes("//DisplayDevice");
+
+            // GET INFO ABOUT PRIMARY DISPLAY ADAPTER [INDEX 0]
+            XmlNodeList dxvList = dxdevList[0].SelectNodes("//DirectXVersion");
+            XmlNodeList dxmList = dxdevList[0].SelectNodes("//DriverModel");
+
+            Version dxversion = new Version(dxvList[dxvList.Count - 1].InnerText.Split(' ')[1] + ".0");
+            Version wddmVersion = null;
+
+            // GET LIST OF SUPPORTED WDDM
+            foreach (XmlNode wddmversionItem in dxmList)
+            {
+                Version currentWDDMversionItem = new Version(wddmversionItem.InnerText.Replace("WDDM", string.Empty).TrimStart());
+
+                if (wddmVersion == null ||
+                    wddmVersion < currentWDDMversionItem)
+                {
+                    wddmVersion = currentWDDMversionItem;
+                }
+            }
+
             if (dxversion < new Version("12.0"))
             {
-                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmversion + ". Update to DirectX 12 or get a GPU with DX12.";
+                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmVersion + ". Update to DirectX 12 or get a GPU with DX12.";
                 gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
             }
             else
             {
-                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmversion;
+                gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmVersion;
 
-                if (wddmversion < new Version("2.0"))
+                if (wddmVersion < new Version("2.0"))
                 {
                     gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
                 }
@@ -231,6 +250,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                     gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
                 }
             }
+
             await Delay(200);
 
 
@@ -332,17 +352,17 @@ namespace Windows_11_Compatibility_Checker_WPF
 
 
             //TPM
-            var process = new Process();
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
-            process.StartInfo.Arguments = "Get-TPM";
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.Verb = "runas";
-            process.Start();
-            string s = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
+            Process wmicTPMVersionProcess = new Process();
+            wmicTPMVersionProcess.StartInfo.UseShellExecute = false;
+            wmicTPMVersionProcess.StartInfo.RedirectStandardOutput = true;
+            wmicTPMVersionProcess.StartInfo.FileName = @"C:\Windows\System32\Wbem\wmic.exe";
+            wmicTPMVersionProcess.StartInfo.Arguments = @"/namespace:\\root\CIMV2\Security\MicrosoftTpm path Win32_Tpm get /value";
+            wmicTPMVersionProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            wmicTPMVersionProcess.StartInfo.CreateNoWindow = true;
+            wmicTPMVersionProcess.StartInfo.Verb = "runas";
+            wmicTPMVersionProcess.Start();
+            string s = wmicTPMVersionProcess.StandardOutput.ReadToEnd();
+            wmicTPMVersionProcess.WaitForExit();
 
             using (StreamWriter outfile = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\TPMresult.txt"))
             {
@@ -350,24 +370,36 @@ namespace Windows_11_Compatibility_Checker_WPF
             }
             using (StreamReader sr = File.OpenText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\TPMresult.txt"))
             {
-                string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\TPMresult.txt");
+                string[] resultLines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\TPMresult.txt");
+                sr.Close();
 
-                if (lines[2].Contains("TpmPresent                : True"))
+                bool tpmEnabled = false;
+                bool tpmActivated = false;
+                bool tpmOwned = false;
+                Version tpmVersion = null;
+
+                foreach (string resultLine in resultLines)
                 {
-                    //TPM VERSION [WMIC]
-                    Process wmicTPMVersionProcess = new Process();
-                    wmicTPMVersionProcess.StartInfo.UseShellExecute = false;
-                    wmicTPMVersionProcess.StartInfo.RedirectStandardOutput = true;
-                    wmicTPMVersionProcess.StartInfo.FileName = @"C:\Windows\System32\Wbem\wmic.exe";
-                    wmicTPMVersionProcess.StartInfo.Arguments = @"/namespace:\\root\CIMV2\Security\MicrosoftTpm path Win32_Tpm get SpecVersion";
-                    wmicTPMVersionProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    wmicTPMVersionProcess.StartInfo.CreateNoWindow = true;
-                    wmicTPMVersionProcess.StartInfo.Verb = "runas";
-                    wmicTPMVersionProcess.Start();
+                    if (resultLine == "IsEnabled_InitialValue=TRUE")
+                    {
+                        tpmEnabled = true;
+                    }
+                    else if (resultLine == "IsActivated_InitialValue=TRUE")
+                    {
+                        tpmActivated = true;
+                    }
+                    else if (resultLine == "IsOwned_InitialValue=TRUE")
+                    {
+                        tpmOwned = true;
+                    }
+                    else if (resultLine.Contains("SpecVersion="))
+                    {
+                        tpmVersion = new Version(resultLine.Replace("SpecVersion=", string.Empty).Split(',')[0].TrimStart().TrimEnd());
+                    }
+                }
 
-                    Version tpmVersion = new Version(wmicTPMVersionProcess.StandardOutput.ReadToEnd().Split('\n')[1].Split(',')[0]);
-                    wmicTPMVersionProcess.WaitForExit();
-
+                if (tpmEnabled)
+                {
                     if (tpmVersion < new Version("2.0"))
                     {
                         tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
@@ -375,7 +407,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                     }
                     else
                     {
-                        if (lines[4].Contains("TpmEnabled                : True"))
+                        if (tpmActivated && tpmOwned)
                         {
                             tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
                             tpmText.Content = "TPM: Version " + tpmVersion + ", Present and enabled";
@@ -386,8 +418,6 @@ namespace Windows_11_Compatibility_Checker_WPF
                             tpmText.Content = "TPM: Version " + tpmVersion + ", Present but not enabled";
                         }
                     }
-
-                    sr.Close();
                 }
                 else
                 {
