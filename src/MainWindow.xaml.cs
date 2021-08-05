@@ -34,6 +34,8 @@ namespace Windows_11_Compatibility_Checker_WPF
 
         private async void Main2()
         {
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
+
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
             await Delay(100);
             Properties.Resources.WindowsCritical.Save(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png");
@@ -99,24 +101,32 @@ namespace Windows_11_Compatibility_Checker_WPF
 
 
             //Check for Windows 11
-            RegistryKey checkwindowsversion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
-            int windowsversion = Convert.ToInt32(checkwindowsversion.GetValue("CurrentBuildNumber"));
-            if (windowsversion >= 21996)
+            try
             {
-                notificationText.Content = "You\'re already running Windows 11 you fool";
-                notificationText.Margin = new Thickness(0, 0, -180, 243);
-                notificationStatus.Margin = new Thickness(135, 9, 0, 0);
-                notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
-            } else
-            {
-                var checkedition = checkwindowsversion.GetValue("EditionID");
-                if((string)checkedition == "Home")
+                RegistryKey checkwindowsversion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+                int windowsversion = Convert.ToInt32(checkwindowsversion.GetValue("CurrentBuildNumber"));
+                if (windowsversion >= 21996)
                 {
-                    notificationText.Content = "Looks like you're using the Home SKU. Internet Connection is required to upgrade.";
-                    notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
-                    notificationStatus.Margin = new Thickness(-8, 9, 0, 0);
-                    notificationText.Margin = new Thickness(0, 0, -35, 243);
+                    notificationText.Content = "You\'re already running Windows 11 you fool";
+                    notificationText.Margin = new Thickness(0, 0, -180, 243);
+                    notificationStatus.Margin = new Thickness(135, 9, 0, 0);
+                    notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
                 }
+                else
+                {
+                    var checkedition = checkwindowsversion.GetValue("EditionID");
+                    if ((string)checkedition == "Home")
+                    {
+                        notificationText.Content = "Looks like you're using the Home SKU. Internet Connection is required to upgrade.";
+                        notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                        notificationStatus.Margin = new Thickness(-8, 9, 0, 0);
+                        notificationText.Margin = new Thickness(0, 0, -35, 243);
+                    }
+                }
+            } 
+            catch (Exception exception)
+            {
+                ExceptionHandler(exception);
             }
 
 
@@ -141,12 +151,12 @@ namespace Windows_11_Compatibility_Checker_WPF
             await Delay(100);
 
 
-            //CPU
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
-
+            try
+            {
+                //CPU
                 foreach (ManagementObject mo in mos.Get())
                 {
-                    cpuName.Content = "CPU: " + (string)mo["Name"];
+                    cpuName.Content = "CPU: " + (string)mo["Nam"];
                 }
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
                 //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\AMD.txt");
@@ -168,7 +178,12 @@ namespace Windows_11_Compatibility_Checker_WPF
                         }
                     }
                 }
-                await Delay(200); 
+                await Delay(200);
+            } 
+            catch (Exception exception)
+            {
+                ExceptionHandler(exception);
+            }
             
             
             
@@ -507,6 +522,17 @@ namespace Windows_11_Compatibility_Checker_WPF
             */
             Window2 window2 = new Window2();
             window2.ShowDialog();
+        }
+
+        public static void ExceptionHandler(Exception exception)
+        {
+            List<string> attachmentList = new List<string>();
+            attachmentList.Add(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\dxv.xml");
+            attachmentList.Add(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\BIOSMode.txt");
+            attachmentList.Add(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\TPMresult.txt");
+
+            ExceptionReporter exReporter = new ExceptionReporter();
+            exReporter.ReportException("orangemanagementcorpn@gmail.com", exception, new StackTrace().GetFrame(1).GetMethod().Name, attachmentList);
         }
     }
 }
