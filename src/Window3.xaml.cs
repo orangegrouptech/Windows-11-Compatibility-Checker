@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -111,6 +112,30 @@ namespace Windows_11_Compatibility_Checker_WPF
         }
         public void LoadMachineInfo()
         {
+            RegistryKey checkwindowsbuild = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+            if (Convert.ToInt32(checkwindowsbuild.GetValue("CurrentBuildNumber")) < 21390)
+            {
+                title.FontFamily = new FontFamily("Segoe UI");
+                title.FontWeight = FontWeights.Bold;
+                title2.FontFamily = new FontFamily("Segoe UI");
+                title3.FontFamily = new FontFamily("Segoe UI");
+                title4.FontFamily = new FontFamily("Segoe UI");
+                appName.FontFamily = new FontFamily("Segoe UI");
+                appVersion.FontFamily = new FontFamily("Segoe UI");
+                dateTime.FontFamily = new FontFamily("Segoe UI");
+                ramAmount.FontFamily = new FontFamily("Segoe UI");
+                storageAmount.FontFamily = new FontFamily("Segoe UI");
+                exceptionMessage.FontFamily = new FontFamily("Segoe UI");
+                callingMethod.FontFamily = new FontFamily("Segoe UI");
+                stacktrace.FontFamily = new FontFamily("Segoe UI");
+                files.FontFamily = new FontFamily("Segoe UI");
+                privacy1.FontFamily = new FontFamily("Segoe UI");
+                privacy2.FontFamily = new FontFamily("Segoe UI");
+                privacy3.FontFamily = new FontFamily("Segoe UI");
+                privacyPolicyLink.FontFamily = new FontFamily("Segoe UI");
+                sendReportButton.FontFamily = new FontFamily("Segoe UI");
+                doNotSendButton.FontFamily = new FontFamily("Segoe UI");
+            }
 
             // OPERATING MEMORY / DISK SPACE
             long ram_Maximum = PerformanceInfo.GetTotalMemoryInMiB();
