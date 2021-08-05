@@ -156,7 +156,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                 //CPU
                 foreach (ManagementObject mo in mos.Get())
                 {
-                    cpuName.Content = "CPU: " + (string)mo["Nam"];
+                    cpuName.Content = "CPU: " + (string)mo["Name"];
                 }
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
                 //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\AMD.txt");
