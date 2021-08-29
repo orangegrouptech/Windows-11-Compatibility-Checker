@@ -13,11 +13,11 @@ If you don't trust me you can decompile the app, it's not obfuscated. Also, f yo
 # Known issues
 - App may hang or stop responding when checking DirectX version for the first time. Just be patient.
 
-![image](https://user-images.githubusercontent.com/63195743/126579557-7b65a81f-b2c4-4206-a9a4-72f8c8735976.png)
+![image](https://user-images.githubusercontent.com/63195743/131249942-25ebc3cc-78c8-4e25-8e16-50a6195818b7.png)
 
-![image](https://user-images.githubusercontent.com/63195743/126023706-832788be-4fa1-4067-8b7c-637261e2a565.png)
+![image](https://user-images.githubusercontent.com/63195743/131249958-51bb61f0-cd7b-4a1d-894b-880354e7269c.png)
 
-![image](https://user-images.githubusercontent.com/63195743/128288508-7c9cb133-718c-49cd-ae33-4dc5fc0d8c15.png)
+![image](https://user-images.githubusercontent.com/63195743/131249952-9e86730d-2900-442e-bdbd-0cb1c32291e7.png)
 
 # To-do list
 
