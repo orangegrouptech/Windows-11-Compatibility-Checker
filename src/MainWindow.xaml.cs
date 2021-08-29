@@ -20,12 +20,38 @@ namespace Windows_11_Compatibility_Checker_WPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    struct HardRequirements
+    {
+        public static bool cpu;
+        public static bool ram;
+        public static bool cpuArchitecture;
+        public static bool storage;
+        public static bool biosMode;
+        public static bool secureBoot;
+        public static bool tpm;
+    }
+    struct SoftRequirements
+    {
+        public static bool cpu;
+        public static bool ram;
+        public static bool gpu;
+        public static bool cpuArchitecture;
+        public static bool storage;
+        public static bool biosMode;
+        public static bool secureBoot;
+        public static bool tpm;
+        public static bool screenResolution;
+    }
     public partial class MainWindow : Window
     {
+        public static int numberOfCores;
         //Welcome to this utter mess, aka the Windows 11 Compatibility Checker source code. I've clearly labelled
         //the code of each check with comments so that I don't mess you or myself up when I debug.
         //I've also left 3 lines for each check. Use Control + F to find your way if you get lost.
         //Have a nice day!
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -79,6 +105,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 tpmText.Foreground = Brushes.White;
                 screenResolutionText.Foreground = Brushes.White;
                 darkModeButton.Content = "Light Mode";
+                greenTickText.Foreground = Brushes.White;
+                warningIconText.Foreground = Brushes.White;
+                errorIconText.Foreground = Brushes.White;
             }
             else if ((int)setdarkmodepreferences.GetValue("DarkMode") == 0)
             {
@@ -96,6 +125,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 tpmText.Foreground = Brushes.Black;
                 screenResolutionText.Foreground = Brushes.Black;
                 darkModeButton.Content = "Dark Mode";
+                greenTickText.Foreground = Brushes.Black;
+                warningIconText.Foreground = Brushes.Black;
+                errorIconText.Foreground = Brushes.Black;
             }
 
 
@@ -108,8 +140,8 @@ namespace Windows_11_Compatibility_Checker_WPF
                 if (windowsversion >= 21996)
                 {
                     notificationText.Content = "You\'re already running Windows 11 you fool";
-                    notificationText.Margin = new Thickness(0, 0, -180, 243);
-                    notificationStatus.Margin = new Thickness(135, 9, 0, 0);
+                    notificationText.Margin = new Thickness(0, 0, -154, 475);
+                    notificationStatus.Margin = new Thickness(149, 15, 0, 0);
                     notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
                 }
                 else
@@ -137,6 +169,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             {
                 notificationText.FontFamily = new FontFamily("Segoe UI");
                 Title.FontWeight = FontWeights.Bold;
+                Title.FontFamily = new FontFamily("Segoe UI");
                 yourSpecsTitle.FontFamily = new FontFamily("Segoe UI");
                 cpuName.FontFamily = new FontFamily("Segoe UI");
                 memoryAmount.FontFamily = new FontFamily("Segoe UI");
@@ -147,6 +180,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 biosModeText.FontFamily = new FontFamily("Segoe UI");
                 tpmText.FontFamily = new FontFamily("Segoe UI");
                 screenResolutionText.FontFamily = new FontFamily("Segoe UI");
+                greenTickText.FontFamily = new FontFamily("Segoe UI");
+                warningIconText.FontFamily = new FontFamily("Segoe UI");
+                errorIconText.FontFamily = new FontFamily("Segoe UI");
             }
             await Delay(100);
 
@@ -157,6 +193,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                 foreach (ManagementObject mo in mos.Get())
                 {
                     cpuName.Content = "CPU: " + (string)mo["Name"];
+                    numberOfCores = Convert.ToInt32(mo["NumberOfCores"]);
                 }
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker");
                 //File.Create(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+@"\Orange Group\Windows 11 Compatibility Checker\AMD.txt");
@@ -170,11 +207,17 @@ namespace Windows_11_Compatibility_Checker_WPF
                         {
                             cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
                             sr.Close();
+                            SoftRequirements.cpu = true;
                             break;
                         }
-                        else
+                        else if(numberOfCores >= 2)
+                        {
+                            cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                            HardRequirements.cpu = true;
+                        } else 
                         {
                             cpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                            HardRequirements.cpu = false;
                         }
                     }
                 }
@@ -208,10 +251,13 @@ namespace Windows_11_Compatibility_Checker_WPF
                 if (memory >= 4)
                 {
                     ramImage.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                    HardRequirements.ram = true;
+                    SoftRequirements.ram = true;
                 }
                 else
                 {
                     ramImage.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                    HardRequirements.ram = false;
                 }
             }
             await Delay(200);
@@ -250,7 +296,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             if (dxversion < new Version("12.0"))
             {
                 gpuText.Content = "GPU: DirectX " + dxversion + ", WDDM " + wddmVersion + ". Update to DirectX 12 or get a GPU with DX12.";
-                gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
             }
             else
             {
@@ -258,11 +304,12 @@ namespace Windows_11_Compatibility_Checker_WPF
 
                 if (wddmVersion < new Version("2.0"))
                 {
-                    gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                    gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
                 }
                 else
                 {
                     gpuStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                    SoftRequirements.gpu = true;
                 }
             }
 
@@ -276,11 +323,14 @@ namespace Windows_11_Compatibility_Checker_WPF
             {
                 cpuArchitectureText.Content = "CPU Architecture: 64-bit";
                 cpuArchitectureStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                HardRequirements.cpuArchitecture = true;
+                SoftRequirements.cpuArchitecture = true;
             }
             else
             {
                 cpuArchitectureText.Content = "CPU Architecture: 32-bit";
                 cpuArchitectureStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                HardRequirements.cpuArchitecture = false;
             }
             await Delay(200);
             
@@ -293,10 +343,13 @@ namespace Windows_11_Compatibility_Checker_WPF
             if (totalsize >= 64)
             {
                 storageImage.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                HardRequirements.storage = true;
+                SoftRequirements.storage = true;
             }
             else
             {
                 storageImage.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                HardRequirements.storage = false;
             }
             await Delay(200);
             
@@ -328,12 +381,15 @@ namespace Windows_11_Compatibility_Checker_WPF
                     {
                         biosModeStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
                         biosModeText.Content = "BIOS Mode: UEFI";
+                        SoftRequirements.biosMode = true;
+                        HardRequirements.biosMode = true;
                         break;
                     }
                     else
                     {
                         biosModeStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
                         biosModeText.Content = "BIOS Mode: Legacy";
+                        HardRequirements.biosMode = false;
                     }
                 }
 
@@ -350,17 +406,21 @@ namespace Windows_11_Compatibility_Checker_WPF
                 {
                     secureBootText.Content = "Secure Boot: Enabled";
                     secureBootStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                    SoftRequirements.secureBoot = true;
+                    HardRequirements.secureBoot = true;
                 }
                 else if ((int)securebootstatus == 0)
                 {
                     secureBootText.Content = "Secure Boot: Disabled. Enable Secure Boot in the BIOS.";
                     secureBootStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                    HardRequirements.secureBoot = false;
                 }
             }
             catch
             {
                 secureBootText.Content = "Secure Boot: Registry Entry not found. You may be using Legacy Boot.";
                 secureBootStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                HardRequirements.secureBoot = false;
             }
             await Delay(200);
 
@@ -417,8 +477,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 {
                     if (tpmVersion < new Version("2.0"))
                     {
-                        tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                        tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
                         tpmText.Content = "TPM: Version " + tpmVersion;
+                        HardRequirements.tpm = true;
                     }
                     else
                     {
@@ -426,11 +487,14 @@ namespace Windows_11_Compatibility_Checker_WPF
                         {
                             tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
                             tpmText.Content = "TPM: Version " + tpmVersion + ", Present and enabled";
+                            SoftRequirements.tpm = true;
+                            HardRequirements.tpm = true;
                         }
                         else
                         {
-                            tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                            tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
                             tpmText.Content = "TPM: Version " + tpmVersion + ", Present but not enabled";
+                            HardRequirements.tpm = false;
                         }
                     }
                 }
@@ -438,6 +502,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                 {
                     tpmStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
                     tpmText.Content = "TPM: Not present";
+                    HardRequirements.tpm = false;
                 }
             }
 
@@ -450,10 +515,34 @@ namespace Windows_11_Compatibility_Checker_WPF
             if (screenWidth >= 1280 && screenHeight >= 720)
             {
                 screenResolutionStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsSuccess.png"));
+                SoftRequirements.screenResolution = true;
             }
             else
             {
-                screenResolutionStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                screenResolutionStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+            }
+
+
+            //Hard floor check
+            if (HardRequirements.cpu == true && HardRequirements.ram == true && HardRequirements.cpuArchitecture == true && HardRequirements.storage == true && HardRequirements.biosMode == true && HardRequirements.secureBoot == true && HardRequirements.tpm == true)
+            {
+                if (SoftRequirements.cpu == true && SoftRequirements.ram == true && SoftRequirements.gpu == true && SoftRequirements.cpuArchitecture == true && SoftRequirements.storage == true && SoftRequirements.biosMode == true && SoftRequirements.secureBoot == true && SoftRequirements.tpm == true && SoftRequirements.screenResolution == true)
+                {
+                    return;
+                }
+                else
+                {
+                    notificationStatus.Margin = new Thickness(84, 15, 0, 0);
+                    notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
+                    notificationText.Margin = new Thickness(0, 0, -85, 475);
+                    notificationText.Content = "Microsoft is reintroducing the hard floor and your PC meets it.";
+                }
+            } else
+            {
+                notificationStatus.Margin = new Thickness(60, 15, 0, 0);
+                notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsCritical.png"));
+                notificationText.Margin = new Thickness(0, 0, -61, 475);
+                notificationText.Content = "Microsoft is reintroducing the hard floor but your PC does not meet it.";
             }
         }
 
@@ -477,6 +566,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 tpmText.Foreground = Brushes.White;
                 screenResolutionText.Foreground = Brushes.White;
                 darkModeButton.Content = "Light Mode";
+                greenTickText.Foreground = Brushes.White;
+                warningIconText.Foreground = Brushes.White;
+                errorIconText.Foreground = Brushes.White;
             }
             else
             {
@@ -495,6 +587,9 @@ namespace Windows_11_Compatibility_Checker_WPF
                 tpmText.Foreground = Brushes.Black;
                 screenResolutionText.Foreground = Brushes.Black;
                 darkModeButton.Content = "Dark Mode";
+                greenTickText.Foreground = Brushes.Black;
+                warningIconText.Foreground = Brushes.Black;
+                errorIconText.Foreground = Brushes.Black;
             }
         }
         private async Task Delay(int howlong)

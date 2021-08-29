@@ -7,9 +7,10 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Windows-11.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>2.4</Version>
+    <Version>2.5</Version>
     <Authors>Orange Group Tech</Authors>
     <Copyright>Copyright © Orange Group Tech</Copyright>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,9 +22,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\WindowsCritical %28Custom%29.png" />
+    <None Remove="Resources\WindowsSuccess %28Custom%29.png" />
+    <None Remove="Resources\WindowsWarning %28Custom%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\WindowsCritical (Custom).png" />
+    <Resource Include="Resources\WindowsSuccess (Custom).png" />
+    <Resource Include="Resources\WindowsWarning (Custom).png" />
   </ItemGroup>
 
   <ItemGroup>

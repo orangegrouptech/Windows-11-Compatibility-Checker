@@ -5,26 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Windows_11_Compatibility_Checker_WPF"
         mc:Ignorable="d"
-        Title="System Requirements" Height="578.223" Width="668.979" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="System Requirements" Height="950.223" Width="668.979" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="title" Content="System Requirements for Windows 11" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Width="545" Margin="74,14,44.333,0" />
-        <Label x:Name="cpuText" Content="CPU:" HorizontalAlignment="Left" Margin="107,84,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc1" Content="8th Gen (Coffee Lake) Intel Core and later" HorizontalAlignment="Left" Margin="188,68,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc2" Content="AMD Ryzen based on Zen+ and above" HorizontalAlignment="Left" Margin="187,89,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc3" Content="AMD Athlon based on Zen 2 (and above)" HorizontalAlignment="Left" Margin="187,110,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="gpuText" Content="GPU:" HorizontalAlignment="Left" Margin="107,223,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="gpuDesc1" Content="Needs to support DirectX 12 or later and have a" HorizontalAlignment="Left" Margin="187,218,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="gpuDesc2" Content="WDDM 2.0 driver (or later)" HorizontalAlignment="Left" Margin="187,242,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="storageText" Content="Storage:" HorizontalAlignment="Left" Margin="73,286,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="storageDesc" Content="At least 60GB of storage to install Windows" HorizontalAlignment="Left" Margin="187,294,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="ramText" Content="RAM:" HorizontalAlignment="Left" Margin="102,157,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="ramDesc" Content="At least 4GB of RAM to boot Windows up" HorizontalAlignment="Left" Margin="187,162,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="bootModeText" Content="Boot Mode:" HorizontalAlignment="Left" Margin="24,344,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="bootModeDesc" Content="UEFI Only + Secure Boot Enabled" HorizontalAlignment="Left" Margin="187,353,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="tpmText" Content="TPM:" HorizontalAlignment="Left" Margin="107,396,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="tpmDesc" Content="Requires TPM 2.0 (or up)" HorizontalAlignment="Left" Margin="187,402,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="screenResText" Content="Screen Res:" HorizontalAlignment="Left" Margin="28,448,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="screenResDesc" Content="720p (1280x720) or higher" HorizontalAlignment="Left" Margin="187,455,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuText" Content="CPU:" HorizontalAlignment="Left" Margin="107,132,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc1" Content="8th Gen (Coffee Lake) Intel Core and later" HorizontalAlignment="Left" Margin="188,116,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc2" Content="AMD Ryzen based on Zen+ and above" HorizontalAlignment="Left" Margin="187,137,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc3" Content="AMD Athlon based on Zen 2 (and above)" HorizontalAlignment="Left" Margin="187,158,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="gpuText" Content="GPU:" HorizontalAlignment="Left" Margin="107,271,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="gpuDesc1" Content="Needs to support DirectX 12 or later and have a" HorizontalAlignment="Left" Margin="187,266,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="gpuDesc2" Content="WDDM 2.0 driver (or later)" HorizontalAlignment="Left" Margin="187,290,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="storageText" Content="Storage:" HorizontalAlignment="Left" Margin="73,334,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="storageDesc" Content="At least 64GB of storage to install Windows" HorizontalAlignment="Left" Margin="187,342,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="ramText" Content="RAM:" HorizontalAlignment="Left" Margin="102,205,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="ramDesc" Content="At least 4GB of RAM to boot Windows up" HorizontalAlignment="Left" Margin="187,210,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="bootModeText" Content="Boot Mode:" HorizontalAlignment="Left" Margin="24,392,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="bootModeDesc" Content="UEFI Only + Secure Boot Enabled" HorizontalAlignment="Left" Margin="187,401,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="tpmText" Content="TPM:" HorizontalAlignment="Left" Margin="107,444,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="tpmDesc" Content="Requires TPM 2.0 (or newer)" HorizontalAlignment="Left" Margin="187,450,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="screenResText" Content="Screen Res:" HorizontalAlignment="Left" Margin="28,496,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="screenResDesc" Content="720p (1280x720) or higher" HorizontalAlignment="Left" Margin="187,503,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
         <Button x:Name="closeButton" Height="31" Width="106" TabIndex="37" Click="closeButton_Click" Margin="0,0,20.667,16" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI Variable Display" Content="Close" />
+        <Label x:Name="softFloor" Content="Soft Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Width="411" Margin="252,70,0.333,0" FontWeight="Bold"  />
+        <Label x:Name="hardFloor" Content="Hard Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Width="411" Margin="252,547,0.333,0" FontWeight="Bold"  />
+        <Label x:Name="cpuHardText" Content="CPU:" HorizontalAlignment="Left" Margin="108,600,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDescHard" Content="2 cores or more, 1 GHz frequency or higher" HorizontalAlignment="Left" Margin="188,605,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="storageHardText" Content="Storage:" HorizontalAlignment="Left" Margin="74,716,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="storageDescHard" Content="At least 64GB of storage to install Windows" HorizontalAlignment="Left" Margin="188,724,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="ramHardText" Content="RAM:" HorizontalAlignment="Left" Margin="103,657,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="ramDescHard" Content="At least 4GB of RAM to boot Windows up" HorizontalAlignment="Left" Margin="188,662,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="bootModeHardText" Content="Boot Mode:" HorizontalAlignment="Left" Margin="25,774,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="bootModeDescHard" Content="UEFI Only + Secure Boot Enabled" HorizontalAlignment="Left" Margin="188,781,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="tpmHardText" Content="TPM:" HorizontalAlignment="Left" Margin="108,829,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="tpmDescHard" Content="Requires TPM 1.2 or newer" HorizontalAlignment="Left" Margin="188,835,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
     </Grid>
 </Window>

@@ -46,6 +46,18 @@ namespace Windows_11_Compatibility_Checker_WPF
                 screenResText.FontFamily = new FontFamily("Segoe UI");
                 screenResDesc.FontFamily = new FontFamily("Segoe UI");
                 closeButton.FontFamily = new FontFamily("Segoe UI");
+                softFloor.FontFamily = new FontFamily("Segoe UI");
+                hardFloor.FontFamily = new FontFamily("Segoe UI");
+                cpuHardText.FontFamily = new FontFamily("Segoe UI");
+                cpuDescHard.FontFamily = new FontFamily("Segoe UI");
+                ramHardText.FontFamily = new FontFamily("Segoe UI");
+                ramDescHard.FontFamily = new FontFamily("Segoe UI");
+                storageHardText.FontFamily = new FontFamily("Segoe UI");
+                storageDescHard.FontFamily = new FontFamily("Segoe UI");
+                bootModeHardText.FontFamily = new FontFamily("Segoe UI");
+                bootModeDescHard.FontFamily = new FontFamily("Segoe UI");
+                tpmHardText.FontFamily = new FontFamily("Segoe UI");
+                tpmDescHard.FontFamily = new FontFamily("Segoe UI");
             }
             RegistryKey darklightmode = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Orange Group\Windows 11 Compatibility Checker");
             if ((int)darklightmode.GetValue("DarkMode") == 1)
@@ -69,6 +81,18 @@ namespace Windows_11_Compatibility_Checker_WPF
                 tpmDesc.Foreground = Brushes.White;
                 screenResText.Foreground = Brushes.White;
                 screenResDesc.Foreground = Brushes.White;
+                softFloor.Foreground = Brushes.White;
+                hardFloor.Foreground = Brushes.White;
+                cpuHardText.Foreground = Brushes.White;
+                cpuDescHard.Foreground = Brushes.White;
+                ramHardText.Foreground = Brushes.White;
+                ramDescHard.Foreground = Brushes.White;
+                storageHardText.Foreground = Brushes.White;
+                storageDescHard.Foreground = Brushes.White;
+                bootModeHardText.Foreground = Brushes.White;
+                bootModeDescHard.Foreground = Brushes.White;
+                tpmHardText.Foreground = Brushes.White;
+                tpmDescHard.Foreground = Brushes.White;
             }
         }
 

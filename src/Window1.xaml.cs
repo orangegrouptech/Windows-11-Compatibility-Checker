@@ -68,17 +68,17 @@ namespace Windows_11_Compatibility_Checker_WPF
                     for (int x = 0; x < lines.Length; x++)
                     {
                         Version version = new Version(lines[x]);
-                        if (version == new Version("2.4"))
+                        if (version == new Version("2.5"))
                         {
                             MessageBox.Show("Windows 11 Compatibility Checker is up to date.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         }
-                        else if (version > new Version("2.4"))
+                        else if (version > new Version("2.5"))
                         {
                             MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.4\nLatest Version: " + lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         }
-                        else if (version < new Version("2.4"))
+                        else if (version < new Version("2.5"))
                         {
                             MessageBox.Show("This build seems to be a development build that has not been pushed out to the public. \nIf you are an authorised tester, then well great, I guess.\nIf not, stop using this app and discard it. It's not very nice to use leaked builds.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                             break;
