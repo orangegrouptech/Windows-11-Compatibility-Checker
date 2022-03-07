@@ -1,9 +1,14 @@
+# ⚠ WARNING: This project is under extended support
+**No new features will be added to Windows 11 Compatibility Checker.** 
+
+Bugs and security issues, if any, will continue to be fixed for 6 months from now. 
+
+Support will fully end on **7 October 2022**. After that, this project will be archived and no new updates will be released.
+
 # Windows-11-Compatibility-Checker
 Checks if your system meets the requirements of Windows 11.
 
 This app features a better UI than WhyNotWin11.
-
-If you don't trust me you can decompile the app, it's not obfuscated. Also, f you Microsoft for flagging this as malware but refusing to add the PanOS malware to your db. This piece of software is safe to use on your host, ignore any false positives
 
 # Requirements
 - .NET Framework 4.5 or later
