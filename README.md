@@ -1,9 +1,9 @@
-# ⚠ WARNING: This project is under extended support
+# ⚠ WARNING: This project is no longer in support
 **No new features will be added to Windows 11 Compatibility Checker.** 
 
-Bugs and security issues, if any, will continue to be fixed for 6 months from now. 
+Bugs and security issues, if any, will NOT be fixed.
 
-Support will fully end on **7 October 2022**. After that, this project will be archived and no new updates will be released.
+Support has fully ended on **7 October 2022**. No new updates will be released.
 
 # Windows-11-Compatibility-Checker
 Checks if your system meets the requirements of Windows 11.
