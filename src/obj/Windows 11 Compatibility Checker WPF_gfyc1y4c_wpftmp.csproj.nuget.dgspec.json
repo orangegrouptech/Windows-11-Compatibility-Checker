@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Orange Group\\Documents\\GitHub\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker WPF.csproj": {
-      "version": "3.0.0",
+      "version": "2.5.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Orange Group\\Documents\\GitHub\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker WPF.csproj",
         "projectName": "Windows 11 Compatibility Checker WPF",
@@ -18,15 +18,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net452"
+          "net45"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net452": {
-            "targetAlias": "net452",
+          "net45": {
+            "targetAlias": "net45",
             "projectReferences": {}
           }
         },
@@ -37,12 +37,14 @@
         }
       },
       "frameworks": {
-        "net452": {
-          "targetAlias": "net452",
+        "net45": {
+          "targetAlias": "net45",
           "dependencies": {
-            "iNKORE.UI.WPF.Modern": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[0.9.25.1, )"
+              "version": "[1.0.3, )",
+              "autoReferenced": true
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"

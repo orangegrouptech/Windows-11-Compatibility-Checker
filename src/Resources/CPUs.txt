@@ -102,6 +102,10 @@ Ryzen 5 5600H
 Ryzen 5 5600HS
 Ryzen 5 5600U
 Ryzen 5 5600X
+Ryzen 5 5600X3D
+Ryzen 5 7500F
+Ryzen 5 7600
+Ryzen 5 7600X
 Ryzen 5 PRO 3400G
 Ryzen 5 PRO 3400GE
 Ryzen 5 PRO 3500U
@@ -133,6 +137,10 @@ Ryzen 7 5800HS
 Ryzen 7 5800U
 Ryzen 7 5800
 Ryzen 7 5800X
+Ryzen 7 5800X3D
+Ryzen 7 7700
+Ryzen 7 7700X
+Ryzen 7 7800X3D
 Ryzen 7 PRO 3700U
 Ryzen 7 PRO 2700
 Ryzen 7 PRO 2700X
@@ -153,6 +161,19 @@ Ryzen 9 5980HX
 Ryzen 9 5900
 Ryzen 9 5900X
 Ryzen 9 5950X
+Ryzen 9 7900
+Ryzen 9 7900X
+Ryzen 9 7900X3D
+Ryzen 9 7950X
+Ryzen 9 7950X3D
+Ryzen 3 7
+Ryzen 5 7
+Ryzen 7 7
+Ryzen 9 7
+Ryzen 3 8
+Ryzen 5 8
+Ryzen 7 8
+Ryzen 9 8
 Ryzen 9 PRO 3900
 Ryzen Threadripper 2920X
 Ryzen Threadripper 2950X
@@ -397,6 +418,12 @@ Core(TM) i3-L13G4
 Core(TM) i5-L16G7
 Core(TM) i5-11400
 Core(TM) i5-11400F
+Core(TM) i5-12400
+Core(TM) i5-12490F
+Core(TM) i5-12400F
+Core(TM) i5-13400
+Core(TM) i5-13400F
+Core(TM) i5-13490F
 Core(TM) i5-11400T
 Core(TM) i5-11500
 Core(TM) i5-11500T
@@ -409,10 +436,28 @@ Core(TM) i7-11700F
 Core(TM) i7-11700K
 Core(TM) i7-11700KF
 Core(TM) i7-11700T
+Core(TM) i7-12700
+Core(TM) i7-12700F
+Core(TM) i7-12700K
+Core(TM) i7-12700KF
+Core(TM) i7-13700
+Core(TM) i7-13700F
+Core(TM) i7-13700K
+Core(TM) i7-13700KF
+Core(TM) i7-14700K
+Core(TM) i7-14700KF
 Core(TM) i9-11900
 Core(TM) i9-11900F
 Core(TM) i9-11900K
 Core(TM) i9-11900KF
+Core(TM) i9-12900K
+Core(TM) i9-12900KF
+Core(TM) i9-12900KS
+Core(TM) i9-13900K
+Core(TM) i9-13900KF
+Core(TM) i9-13900KS
+Core(TM) i9-14900K
+Core(TM) i9-14900KF
 Core(TM) i9-11900T
 Core(TM) i3-1110G4
 Core(TM) i3-1115G4
@@ -435,6 +480,13 @@ Core(TM) i7-1165G7
 Core(TM) i7-1165G7
 Core(TM) i7-1180G7
 Core(TM) i7-1185G7
+Core(TM) i7-1260P
+Core(TM) i7-1280P
+Core(TM) i7-1360P
+Core(TM) i7-1380P
+Core(TM) 7-155H
+Core(TM) 7-165H
+Core(TM) 7-185H
 Core(TM) i7-1185G7E
 Core(TM) i7-1185GRE
 Pentium(R) Gold 4425Y

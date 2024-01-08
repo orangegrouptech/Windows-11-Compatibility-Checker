@@ -14,6 +14,8 @@ using System.Xml;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using iNKORE.UI.WPF.Modern;
+using iNKORE.UI.WPF.Modern.Controls;
 
 namespace Windows_11_Compatibility_Checker_WPF
 {
@@ -52,13 +54,13 @@ namespace Windows_11_Compatibility_Checker_WPF
 
 
 
-        public MainWindow()
+        public MainWindow(bool outputResult)
         {
             InitializeComponent();
-            Main2();
+            Main2(outputResult);
         }
 
-        private async void Main2()
+        private async void Main2(bool outputResult)
         {
             ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
 
@@ -91,43 +93,20 @@ namespace Windows_11_Compatibility_Checker_WPF
             }
             if ((int)setdarkmodepreferences.GetValue("DarkMode") == 1)
             {
-                Background = Brushes.Black;
-                notificationText.Foreground = Brushes.White;
-                Title.Foreground = Brushes.White;
-                yourSpecsTitle.Foreground = Brushes.White;
-                cpuName.Foreground = Brushes.White;
-                memoryAmount.Foreground = Brushes.White;
-                gpuText.Foreground = Brushes.White;
-                cpuArchitectureText.Foreground = Brushes.White;
-                storageText.Foreground = Brushes.White;
-                secureBootText.Foreground = Brushes.White;
-                biosModeText.Foreground = Brushes.White;
-                tpmText.Foreground = Brushes.White;
-                screenResolutionText.Foreground = Brushes.White;
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
                 darkModeButton.Content = "Light Mode";
-                greenTickText.Foreground = Brushes.White;
-                warningIconText.Foreground = Brushes.White;
-                errorIconText.Foreground = Brushes.White;
             }
             else if ((int)setdarkmodepreferences.GetValue("DarkMode") == 0)
             {
-                Background = Brushes.White;
-                notificationText.Foreground = Brushes.Black;
-                Title.Foreground = Brushes.Black;
-                yourSpecsTitle.Foreground = Brushes.Black;
-                cpuName.Foreground = Brushes.Black;
-                memoryAmount.Foreground = Brushes.Black;
-                gpuText.Foreground = Brushes.Black;
-                cpuArchitectureText.Foreground = Brushes.Black;
-                storageText.Foreground = Brushes.Black;
-                secureBootText.Foreground = Brushes.Black;
-                biosModeText.Foreground = Brushes.Black;
-                tpmText.Foreground = Brushes.Black;
-                screenResolutionText.Foreground = Brushes.Black;
-                darkModeButton.Content = "Dark Mode";
-                greenTickText.Foreground = Brushes.Black;
-                warningIconText.Foreground = Brushes.Black;
-                errorIconText.Foreground = Brushes.Black;
+                ThemeManager.Current.ApplicationTheme = null;
+                if (Convert.ToString(ThemeManager.Current.ActualApplicationTheme) == "Light")
+                {
+                    darkModeButton.Content = "Dark Mode";
+                }
+                else
+                {
+                    darkModeButton.Content = "Light Mode";
+                }
             }
 
 
@@ -141,19 +120,8 @@ namespace Windows_11_Compatibility_Checker_WPF
                 {
                     notificationText.Content = "You\'re already running Windows 11 you fool";
                     notificationText.Margin = new Thickness(0, 0, -154, 475);
-                    notificationStatus.Margin = new Thickness(149, 15, 0, 0);
+                    notificationStatus.Margin = new Thickness(160, 13, 0, 0);
                     notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
-                }
-                else
-                {
-                    var checkedition = checkwindowsversion.GetValue("EditionID");
-                    if ((string)checkedition == "Home")
-                    {
-                        notificationText.Content = "Looks like you're using the Home SKU. Internet Connection is required to upgrade.";
-                        notificationStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
-                        notificationStatus.Margin = new Thickness(-8, 9, 0, 0);
-                        notificationText.Margin = new Thickness(0, 0, -35, 243);
-                    }
                 }
             } 
             catch (Exception exception)
@@ -522,7 +490,7 @@ namespace Windows_11_Compatibility_Checker_WPF
                 screenResolutionStatus.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\WindowsWarning.png"));
             }
 
-
+            /*
             //Hard floor check
             if (HardRequirements.cpu == true && HardRequirements.ram == true && HardRequirements.cpuArchitecture == true && HardRequirements.storage == true && HardRequirements.biosMode == true && HardRequirements.secureBoot == true && HardRequirements.tpm == true)
             {
@@ -544,6 +512,55 @@ namespace Windows_11_Compatibility_Checker_WPF
                 notificationText.Margin = new Thickness(0, 0, -61, 475);
                 notificationText.Content = "Microsoft is reintroducing the hard floor but your PC does not meet it.";
             }
+            */
+            if (outputResult == true)
+            {
+                using (StreamWriter writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Result.txt"))
+                {
+                    writer.WriteLine("Windows 11 Compatibility Checker results");
+                    writer.WriteLine("----------------------------------------");
+                    writer.WriteLine("CPU:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.cpu);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.cpu);
+                    writer.WriteLine("");
+                    writer.WriteLine("RAM:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.ram);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.ram);
+                    writer.WriteLine("");
+                    writer.WriteLine("GPU:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.gpu);
+                    writer.WriteLine("");
+                    writer.WriteLine("CPU Architecture:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.cpuArchitecture);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.cpuArchitecture);
+                    writer.WriteLine("");
+                    writer.WriteLine("Storage:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.storage);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.storage);
+                    writer.WriteLine("");
+                    writer.WriteLine("BIOS Mode:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.biosMode);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.biosMode);
+                    writer.WriteLine("");
+                    writer.WriteLine("Secure Boot:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.secureBoot);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.secureBoot);
+                    writer.WriteLine("");
+                    writer.WriteLine("TPM:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.tpm);
+                    writer.WriteLine("Meets hard floor: " + HardRequirements.tpm);
+                    writer.WriteLine("");
+                    writer.WriteLine("Screen Resolution:");
+                    writer.WriteLine("Meets soft floor: " + SoftRequirements.screenResolution);
+                }
+                await Delay(500);
+                ContentDialog dialog = new ContentDialog();
+                dialog.Title = "Information";
+                dialog.Content = "Results have been saved to "+ Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Result.txt";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                await dialog.ShowAsync();
+            }
         }
 
         private void darkModeButton_Click(object sender, EventArgs e)
@@ -552,44 +569,14 @@ namespace Windows_11_Compatibility_Checker_WPF
             if (setdarkmodepreferences.GetValue("DarkMode") == null || (int)setdarkmodepreferences.GetValue("DarkMode") == 0)
             {
                 setdarkmodepreferences.SetValue("DarkMode", 1);
-                Background = Brushes.Black;
-                notificationText.Foreground = Brushes.White;
-                Title.Foreground = Brushes.White;
-                yourSpecsTitle.Foreground = Brushes.White;
-                cpuName.Foreground = Brushes.White;
-                memoryAmount.Foreground = Brushes.White;
-                gpuText.Foreground = Brushes.White;
-                cpuArchitectureText.Foreground = Brushes.White;
-                storageText.Foreground = Brushes.White;
-                secureBootText.Foreground = Brushes.White;
-                biosModeText.Foreground = Brushes.White;
-                tpmText.Foreground = Brushes.White;
-                screenResolutionText.Foreground = Brushes.White;
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
                 darkModeButton.Content = "Light Mode";
-                greenTickText.Foreground = Brushes.White;
-                warningIconText.Foreground = Brushes.White;
-                errorIconText.Foreground = Brushes.White;
             }
             else
             {
                 setdarkmodepreferences.SetValue("DarkMode", 0);
-                Background = Brushes.White;
-                notificationText.Foreground = Brushes.Black;
-                Title.Foreground = Brushes.Black;
-                yourSpecsTitle.Foreground = Brushes.Black;
-                cpuName.Foreground = Brushes.Black;
-                memoryAmount.Foreground = Brushes.Black;
-                gpuText.Foreground = Brushes.Black;
-                cpuArchitectureText.Foreground = Brushes.Black;
-                storageText.Foreground = Brushes.Black;
-                secureBootText.Foreground = Brushes.Black;
-                biosModeText.Foreground = Brushes.Black;
-                tpmText.Foreground = Brushes.Black;
-                screenResolutionText.Foreground = Brushes.Black;
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
                 darkModeButton.Content = "Dark Mode";
-                greenTickText.Foreground = Brushes.Black;
-                warningIconText.Foreground = Brushes.Black;
-                errorIconText.Foreground = Brushes.Black;
             }
         }
         private async Task Delay(int howlong)
@@ -599,8 +586,8 @@ namespace Windows_11_Compatibility_Checker_WPF
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            Window1 window1 = new Window1();
-            window1.ShowDialog();
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
         }
 
         private void sysRequirementsButton_Click(object sender, RoutedEventArgs e)
@@ -615,8 +602,8 @@ namespace Windows_11_Compatibility_Checker_WPF
                 "TPM:\nWindows 11 requires TPM 2.0.\n\n" +
                 "Screen resolution: \nWindows 11 requires a display with a 720p resolution (1280 x 720) and higher.", "System Requirements", MessageBoxButton.OK, MessageBoxImage.Information);
             */
-            Window2 window2 = new Window2();
-            window2.ShowDialog();
+            SystemRequirementsWindow systemRequirementsWindow = new SystemRequirementsWindow();
+            systemRequirementsWindow.ShowDialog();
         }
 
         public static void ExceptionHandler(Exception exception)

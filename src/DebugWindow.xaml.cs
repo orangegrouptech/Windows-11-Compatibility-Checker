@@ -17,7 +17,7 @@ namespace Windows_11_Compatibility_Checker_WPF
     /// <summary>
     /// Interaction logic for Window3.xaml
     /// </summary>
-    public partial class Window3 : Window
+    public partial class DebugWindow : Window
     {
         public static string _machineInfo_RAM;
         public static string _machineInfo_DiskSpace;
@@ -148,7 +148,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             _machineInfo_RAM = (int)ram_Used + " of " + (int)ram_Maximum + " MB Used";
             _machineInfo_DiskSpace = (int)disk_Used + " of " + (int)disk_Total + " GB Used";
         }
-        public Window3(Exception exception, string callingMethodVar, string targetReportEmailAddress, List<string> attachmentList)
+        public DebugWindow(Exception exception, string callingMethodVar, string targetReportEmailAddress, List<string> attachmentList)
         {
             exception1 = exception;
             targetReportEmailAddress1 = targetReportEmailAddress;

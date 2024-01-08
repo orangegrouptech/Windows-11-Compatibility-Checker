@@ -27,11 +27,11 @@ namespace Windows_11_Compatibility_Checker_WPF
             // GET INFORMATION
             LoadMachineInfo();
 
-            Window3 window3 = new Window3(exception, callingMethod, targetReportMailAddress, attachmentList);
-            window3.ShowDialog();
+            DebugWindow debugWindow = new DebugWindow(exception, callingMethod, targetReportMailAddress, attachmentList);
+            debugWindow.ShowDialog();
 
             // SEND E-MAIL REPORT
-            Window3.SendNotificationMail(targetReportMailAddress, exception, callingMethod, attachmentList);
+            DebugWindow.SendNotificationMail(targetReportMailAddress, exception, callingMethod, attachmentList);
         }
 
         

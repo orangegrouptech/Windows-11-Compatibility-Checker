@@ -1,17 +1,20 @@
-﻿<Window x:Class="Windows_11_Compatibility_Checker_WPF.Window2"
+﻿<Window x:Class="Windows_11_Compatibility_Checker_WPF.SystemRequirementsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Windows_11_Compatibility_Checker_WPF"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
         mc:Ignorable="d"
-        Title="System Requirements" Height="950.223" Width="668.979" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="System Requirements" Height="950.223" Width="668.979" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:TitleBar.IsIconVisible="True">
     <Grid>
-        <Label x:Name="title" Content="System Requirements for Windows 11" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Width="545" Margin="74,14,44.333,0" />
+        <Label x:Name="title" Content="System Requirements for Windows 11" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Margin="74,14,44.333,0" />
         <Label x:Name="cpuText" Content="CPU:" HorizontalAlignment="Left" Margin="107,132,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc1" Content="8th Gen (Coffee Lake) Intel Core and later" HorizontalAlignment="Left" Margin="188,116,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc2" Content="AMD Ryzen based on Zen+ and above" HorizontalAlignment="Left" Margin="187,137,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Label x:Name="cpuDesc3" Content="AMD Athlon based on Zen 2 (and above)" HorizontalAlignment="Left" Margin="187,158,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc1" Content="8th Gen (Coffee Lake) Intel Core or later" HorizontalAlignment="Left" Margin="188,116,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc2" Content="AMD Ryzen based on Zen+ or later" HorizontalAlignment="Left" Margin="187,137,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
+        <Label x:Name="cpuDesc3" Content="AMD Athlon based on Zen 2 or later" HorizontalAlignment="Left" Margin="187,158,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="gpuText" Content="GPU:" HorizontalAlignment="Left" Margin="107,271,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="gpuDesc1" Content="Needs to support DirectX 12 or later and have a" HorizontalAlignment="Left" Margin="187,266,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="gpuDesc2" Content="WDDM 2.0 driver (or later)" HorizontalAlignment="Left" Margin="187,290,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
@@ -25,9 +28,9 @@
         <Label x:Name="tpmDesc" Content="Requires TPM 2.0 (or newer)" HorizontalAlignment="Left" Margin="187,450,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="screenResText" Content="Screen Res:" HorizontalAlignment="Left" Margin="28,496,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="screenResDesc" Content="720p (1280x720) or higher" HorizontalAlignment="Left" Margin="187,503,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
-        <Button x:Name="closeButton" Height="31" Width="106" TabIndex="37" Click="closeButton_Click" Margin="0,0,20.667,16" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI Variable Display" Content="Close" />
-        <Label x:Name="softFloor" Content="Soft Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Width="411" Margin="252,70,0.333,0" FontWeight="Bold"  />
-        <Label x:Name="hardFloor" Content="Hard Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Width="411" Margin="252,547,0.333,0" FontWeight="Bold"  />
+        <Button x:Name="closeButton" Height="34" Width="106" TabIndex="37" Click="closeButton_Click" Margin="0,0,20.667,16" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI Variable Display" Content="Close" />
+        <Label x:Name="softFloor" Content="Soft Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Margin="0,70,0,0" FontWeight="Bold" />
+        <Label x:Name="hardFloor" Content="Hard Floor" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontFamily="Segoe UI Variable Display" Margin="0,547,0,0" FontWeight="Bold" />
         <Label x:Name="cpuHardText" Content="CPU:" HorizontalAlignment="Left" Margin="108,600,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="cpuDescHard" Content="2 cores or more, 1 GHz frequency or higher" HorizontalAlignment="Left" Margin="188,605,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Variable Display"/>
         <Label x:Name="storageHardText" Content="Storage:" HorizontalAlignment="Left" Margin="74,716,0,0" VerticalAlignment="Top" FontSize="28" RenderTransformOrigin="2.006,0.432" FontFamily="Segoe UI Variable Display"/>

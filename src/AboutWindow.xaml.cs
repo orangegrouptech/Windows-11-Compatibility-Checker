@@ -6,16 +6,19 @@ using System.Net;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using iNKORE.UI.WPF.Modern;
+using iNKORE.UI.WPF.Modern.Controls;
 using Microsoft.Win32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Windows_11_Compatibility_Checker_WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AboutWindow : Window
     {
-        public Window1()
+        public AboutWindow()
         {
             InitializeComponent();
             windows11.Source = new BitmapImage(new Uri(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Orange Group\Windows 11 Compatibility Checker\Windows 11.png"));
@@ -34,19 +37,6 @@ namespace Windows_11_Compatibility_Checker_WPF
                 creditContributorsCode.FontFamily = new FontFamily("Segoe UI");
                 closeButton.FontFamily = new FontFamily("Segoe UI");
             }
-            RegistryKey darklightmode = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Orange Group\Windows 11 Compatibility Checker");
-            if ((int)darklightmode.GetValue("DarkMode") == 1)
-            {
-                Background = Brushes.Black;
-                title.Foreground = Brushes.White;
-                version.Foreground = Brushes.White;
-                byLine.Foreground = Brushes.White;
-                discordTag.Foreground = Brushes.White;
-                license.Foreground = Brushes.White;
-                credits.Foreground = Brushes.White;
-                creditTesters.Foreground = Brushes.White;
-                creditContributorsCode.Foreground = Brushes.White;
-            }
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +44,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             this.Close();
         }
 
-        private void checkForUpdates_Click(object sender, RoutedEventArgs e)
+        private async void checkForUpdates_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -68,19 +58,36 @@ namespace Windows_11_Compatibility_Checker_WPF
                     for (int x = 0; x < lines.Length; x++)
                     {
                         Version version = new Version(lines[x]);
-                        if (version == new Version("2.5"))
+                        if (version == new Version("3.0"))
                         {
-                            MessageBox.Show("Windows 11 Compatibility Checker is up to date.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            //iNKORE.UI.WPF.Modern.Controls.MessageBox.Show("Windows 11 Compatibility Checker is up to date.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ContentDialog dialog = new ContentDialog();
+                            dialog.Title = "Information";
+                            dialog.Content = "Windows 11 Compatibility Checker is up to date.";
+                            dialog.PrimaryButtonText = "OK";
+                            dialog.DefaultButton = ContentDialogButton.Primary;
+                            await dialog.ShowAsync();
                             break;
                         }
-                        else if (version > new Version("2.5"))
+                        else if (version > new Version("3.0"))
                         {
-                            MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.4\nLatest Version: " + lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            //iNKORE.UI.WPF.Modern.Controls.MessageBox.Show("An update was found. Please head over to the GitHub page to download the update. \nCurrent Version: 2.4\nLatest Version: " + lines[x], "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ContentDialog dialog = new ContentDialog();
+                            dialog.Title = "Information";
+                            dialog.Content = "An update was found. Would you like to head over to the download page now? \nCurrent Version: 3.0\nLatest Version: " + lines[x];
+                            dialog.PrimaryButtonText = "Yes";
+                            dialog.SecondaryButtonText = "No";
+                            dialog.DefaultButton = ContentDialogButton.Primary;
+                            var result = await dialog.ShowAsync();
+                            if (result == ContentDialogResult.Primary)
+                            {
+                                Process.Start("https://github.com/orangegrouptech/Windows-11-Compatibility-Checker/releases/latest");
+                            }
                             break;
                         }
-                        else if (version < new Version("2.5"))
+                        else if (version < new Version("3.0"))
                         {
-                            MessageBox.Show("This build seems to be a development build that has not been pushed out to the public. \nIf you are an authorised tester, then well great, I guess.\nIf not, stop using this app and discard it. It's not very nice to use leaked builds.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            iNKORE.UI.WPF.Modern.Controls.MessageBox.Show("This build seems to be a development build that has not been pushed out to the public. \nIf you are an authorised tester, then well great, I guess.\nIf not, stop using this app and discard it. It's not very nice to use leaked builds.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                             break;
                         }
                     }
@@ -88,7 +95,7 @@ namespace Windows_11_Compatibility_Checker_WPF
             } 
             catch
             {
-                MessageBox.Show("There was an error checking for updates. Maybe see if you're connected to the Internet or try whitelisting github.com on your firewall.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                iNKORE.UI.WPF.Modern.Controls.MessageBox.Show("There was an error checking for updates. Maybe see if you're connected to the Internet or try whitelisting github.com on your firewall.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

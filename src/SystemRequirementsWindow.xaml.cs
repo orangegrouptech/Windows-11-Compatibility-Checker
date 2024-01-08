@@ -18,9 +18,9 @@ namespace Windows_11_Compatibility_Checker_WPF
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class SystemRequirementsWindow : Window
     {
-        public Window2()
+        public SystemRequirementsWindow()
         {
             InitializeComponent();
             RegistryKey checkwindowsbuild = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
@@ -58,41 +58,6 @@ namespace Windows_11_Compatibility_Checker_WPF
                 bootModeDescHard.FontFamily = new FontFamily("Segoe UI");
                 tpmHardText.FontFamily = new FontFamily("Segoe UI");
                 tpmDescHard.FontFamily = new FontFamily("Segoe UI");
-            }
-            RegistryKey darklightmode = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Orange Group\Windows 11 Compatibility Checker");
-            if ((int)darklightmode.GetValue("DarkMode") == 1)
-            {
-                Background = Brushes.Black;
-                title.Foreground = Brushes.White;
-                cpuText.Foreground = Brushes.White;
-                cpuDesc1.Foreground = Brushes.White;
-                cpuDesc2.Foreground = Brushes.White;
-                cpuDesc3.Foreground = Brushes.White;
-                ramText.Foreground = Brushes.White;
-                ramDesc.Foreground = Brushes.White;
-                gpuText.Foreground = Brushes.White;
-                gpuDesc1.Foreground = Brushes.White;
-                gpuDesc2.Foreground = Brushes.White;
-                storageText.Foreground = Brushes.White;
-                storageDesc.Foreground = Brushes.White;
-                bootModeText.Foreground = Brushes.White;
-                bootModeDesc.Foreground = Brushes.White;
-                tpmText.Foreground = Brushes.White;
-                tpmDesc.Foreground = Brushes.White;
-                screenResText.Foreground = Brushes.White;
-                screenResDesc.Foreground = Brushes.White;
-                softFloor.Foreground = Brushes.White;
-                hardFloor.Foreground = Brushes.White;
-                cpuHardText.Foreground = Brushes.White;
-                cpuDescHard.Foreground = Brushes.White;
-                ramHardText.Foreground = Brushes.White;
-                ramDescHard.Foreground = Brushes.White;
-                storageHardText.Foreground = Brushes.White;
-                storageDescHard.Foreground = Brushes.White;
-                bootModeHardText.Foreground = Brushes.White;
-                bootModeDescHard.Foreground = Brushes.White;
-                tpmHardText.Foreground = Brushes.White;
-                tpmDescHard.Foreground = Brushes.White;
             }
         }
 
