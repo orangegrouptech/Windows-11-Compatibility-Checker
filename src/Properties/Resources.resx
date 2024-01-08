@@ -118,28 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="circle_cropped__Custom___1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circle-cropped (Custom) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CPUs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CPUs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="WindowsCritical" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsCritical (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WindowsHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WindowsHelp (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="github (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\github (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WindowsHelp (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WindowsHelp (Custom)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WindowsSuccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsSuccess (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Windows 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows 111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WindowsHelp (Custom)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WindowsHelp (Custom)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CPUs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CPUs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="WindowsWarning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WindowsWarning (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Windows_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Windows 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circle-cropped (Custom) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-cropped (Custom) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Windows_111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Windows-11.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="twitter (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twitter (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="github_white__Custom_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\github white (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="twitter_white__Custom_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twitter white (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

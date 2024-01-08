@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Orange Group\\Downloads\\Windows-11-Compatibility-Checker\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Orange Group\\Downloads\\Windows-11-Compatibility-Checker\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker.csproj": {
+      "version": "1.4.2",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Orange Group\\Downloads\\Windows-11-Compatibility-Checker\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker.csproj",
+        "projectName": "Windows 11 Compatibility Checker",
+        "projectPath": "C:\\Users\\Orange Group\\Downloads\\Windows-11-Compatibility-Checker\\Windows-11-Compatibility-Checker\\src\\Windows 11 Compatibility Checker.csproj",
+        "packagesPath": "C:\\Users\\Orange Group\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Orange Group\\Downloads\\Windows-11-Compatibility-Checker\\Windows-11-Compatibility-Checker\\src\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Orange Group\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net20"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net20": {
+            "targetAlias": "net20",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net20": {
+          "targetAlias": "net20",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
